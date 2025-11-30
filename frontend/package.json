@@ -14,14 +14,18 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^5.2.8",
+    "@hookform/resolvers": "^5.2.2",
     "@mui/material": "^7.3.5",
     "@mui/styled-engine-sc": "^7.3.5",
     "@tailwindcss/postcss": "^4.1.17",
     "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-hook-form": "^7.67.0",
     "react-is": "^18.3.1",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "zod": "^4.1.13",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",

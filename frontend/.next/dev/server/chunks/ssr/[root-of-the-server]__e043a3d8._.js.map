@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":["file:///home/farael/GitHub/rec-me/frontend/shared/ui/custom-input/index.tsx"],"sourcesContent":["export const CustomInput = ({ ...props }) => {\n  return <input className=\"w-[352px] h-[57px] rounded-[15px]\" {...props} />;\n};\n"],"names":[],"mappings":";;;;;;AAAO,MAAM,cAAc,CAAC,EAAE,GAAG,OAAO;IACtC,qBAAO,0PAAC;QAAM,WAAU;QAAqC,GAAG,KAAK;;;;;;AACvE","debugId":null}},
+    {"offset": {"line": 42, "column": 0}, "map": {"version":3,"sources":["file:///home/farael/GitHub/rec-me/frontend/app/booking/page.tsx"],"sourcesContent":["import { CustomInput } from \"@/shared/ui/custom-input\";\n\nexport default function Home() {\n  return <CustomInput />;\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACtB,qBAAO,0PAAC,oKAAW;;;;;AACrB","debugId":null}}]
+}

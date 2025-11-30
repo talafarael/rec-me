@@ -4,8 +4,7 @@ import "./globals.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { ThemeProvider } from "styled-components";
-import { theme } from "@/shared/ui";
+import { CustomThemeProvider } from "@/shared/ui/custom-theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <CustomThemeProvider>{children}</CustomThemeProvider>
       </body>
     </html>
   );

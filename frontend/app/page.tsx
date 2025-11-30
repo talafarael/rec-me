@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
+import { CustomInput } from "@/shared/ui/custom-input";
 
 export default function Home() {
-  return <Button variant="contained">Hello world</Button>;
+  return <CustomInput />;
 }
