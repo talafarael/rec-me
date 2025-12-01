@@ -1,6 +1,6 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/booking/page.js")
 R.c("server/chunks/ssr/9e883_next_dist_ffbd360b._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__e3db74cc._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__a12a387a._.js")
 R.c("server/chunks/ssr/9e883_aa5f87ed._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__e8a2741f._.js")
 R.c("server/chunks/ssr/frontend_app_d6137892._.js")

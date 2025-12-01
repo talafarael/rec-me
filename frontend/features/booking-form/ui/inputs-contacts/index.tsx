@@ -1,8 +1,8 @@
 import { FormInput } from "@/shared/ui/form-input";
 import { inputsContactsData } from "./inputs-contacts.data";
-import { CustomInput } from "@/shared/ui/custom-input";
 import { Control } from "react-hook-form";
 import { BookingForm } from "../../schemas";
+import { BookingFieldInput } from "@/entities/booking-form/ui/field-input";
 
 export interface InputsContactsProps {
   control: Control<BookingForm>;
@@ -20,10 +20,11 @@ export const InputsContacts = ({ control }: InputsContactsProps) => {
                 control={control}
               >
                 {(field, fieldErrors) => (
-                  <div>
-                    <CustomInput {...field} />
-                    {fieldErrors}
-                  </div>
+                  <BookingFieldInput
+                    title={elem.field}
+                    field={field}
+                    fieldErrors={fieldErrors}
+                  />
                 )}
               </FormInput>
             );

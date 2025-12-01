@@ -1,54 +1,61 @@
 import { useStep } from "@/shared/ui/step-context";
 import { useForm } from "react-hook-form";
-import { InputsContacts } from "../inputs-contacts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BookingForm, bookingSchema } from "../../schemas";
 import { contactSchema } from "../../schemas/contact.schema";
+import { StepButton, StepButtonBar } from "@/entities/step";
+import { BookingSteper } from "@/widgets/booking-steper";
+import { verifyCodeSchema } from "../../schemas/verify-code.schema";
 
 export const FormBooking = () => {
-  const { step } = useStep();
+  const { step, nextStep } = useStep();
   const { control, getValues, setError, clearErrors } = useForm<BookingForm>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {},
   });
   const handlerContactPageNext = () => {
     const values = getValues();
+    let result;
 
-    const result = contactSchema.safeParse(values);
-    console.log(values);
-    if (!result.success) {
-      for (const [key, issues] of Object.entries(
-        result.error.flatten().fieldErrors,
-      )) {
-        if (issues && issues.length > 0) {
-          setError(key as keyof BookingForm, {
-            type: "manual",
-            message: issues[0],
-          });
-        }
-      }
-      return;
-    }
-    clearErrors();
-    console.log("next");
-  };
-  const renderStep = () => {
     switch (step) {
       case 1:
-        return <InputsContacts control={control} />;
       case 2:
-        return <div>Step 2 content</div>;
+        result = contactSchema.safeParse(values);
+        break;
       case 3:
-        return <div>Step 3 content</div>;
+        result = verifyCodeSchema.safeParse(values);
+        break;
       default:
-        return <div>Unknown step</div>;
+        result = null;
     }
-  };
 
+    if (result && !result.success) {
+      const errors = result.error.flatten().fieldErrors;
+      Object.entries(errors).forEach(([key, [message]]) => {
+        if (message) {
+          setError(key as keyof BookingForm, {
+            type: "manual",
+            message,
+          });
+        }
+      });
+      return;
+    }
+
+    clearErrors();
+    nextStep();
+  };
   return (
     <div>
-      {renderStep()}
-      <button onClick={handlerContactPageNext}>next</button>
+      <BookingSteper
+        handlerContactsPage={handlerContactPageNext}
+        control={control}
+      />
+      <StepButtonBar
+        childrenNextButton={
+          <StepButton variant="next" onClick={handlerContactPageNext} />
+        }
+      />
     </div>
   );
 };
