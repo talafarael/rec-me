@@ -3,15 +3,15 @@ import { useEffect } from "react";
 import { sendPixel } from "../../lib/send-pixel";
 import { useStep } from "@/shared/ui/step-context";
 import { PixelEvent } from "../../enums/events.enum";
+import { useUrlParamStore } from "@/features/url-param/store";
 
-export interface PixelTrackerProps {
-  pixelId: string;
-}
-
-export const PixelTracker = ({ pixelId }: PixelTrackerProps) => {
+export const PixelTracker = () => {
   const { step } = useStep();
-
+  const { params } = useUrlParamStore();
+  const pixelId = params?.pixel;
   useEffect(() => {
+    if (!pixelId) return;
+
     let event: PixelEvent;
     switch (step) {
       case 1:
