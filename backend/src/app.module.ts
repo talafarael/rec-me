@@ -1,10 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TwilioModule } from './twilio/twilio.module';
+import { SendpluseModule } from './sendpluse/sendpluse.module';
+import { ConfigModule } from '@nestjs/config';
+import { LeadModule } from './lead/lead.module';
+import configuration from './config/configuration';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TwilioModule,
+    SendpluseModule,
+    ConfigModule.forRoot({
+      load: [configuration],
+      isGlobal: true,
+    }),
+    LeadModule,
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
