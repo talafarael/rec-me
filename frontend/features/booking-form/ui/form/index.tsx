@@ -6,17 +6,30 @@ import { contactSchema } from "../../schemas/contact.schema";
 import { StepButton, StepButtonBar } from "@/entities/step";
 import { BookingSteper } from "@/widgets/booking-steper";
 import { verifyCodeSchema } from "../../schemas/verify-code.schema";
+import { useUrlParamStore } from "@/features/url-param/store";
+import { useSendLead } from "@/features/lead";
+import { SendLeadDto } from "@/features/lead/dto/send-lead.dto";
 
 export const FormBooking = () => {
   const { step, nextStep } = useStep();
-  const { control, getValues, setError, clearErrors } = useForm<BookingForm>({
+  const { params } = useUrlParamStore();
+  const { handlerSendLead } = useSendLead();
+  const {
+    control,
+    getValues,
+    setError,
+    clearErrors,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm<BookingForm>({
     resolver: zodResolver(bookingSchema),
-    defaultValues: {},
+    defaultValues: {
+      verifyCodePhone: "afa1",
+    },
   });
   const handlerContactPageNext = () => {
     const values = getValues();
     let result;
-
     switch (step) {
       case 1:
       case 2:
@@ -41,21 +54,34 @@ export const FormBooking = () => {
       });
       return;
     }
-
     clearErrors();
     nextStep();
   };
+  const handlerSubmit = (data: BookingForm) => {
+    console.log(data);
+    if (!params) return;
+    const body: SendLeadDto = {
+      ...data,
+      name: data.fullName,
+      ...params,
+    };
+    handlerSendLead(body);
+  };
   return (
-    <div>
+    <form onSubmit={handleSubmit(handlerSubmit)}>
       <BookingSteper
         handlerContactsPage={handlerContactPageNext}
         control={control}
       />
       <StepButtonBar
         childrenNextButton={
-          <StepButton variant="next" onClick={handlerContactPageNext} />
+          step == 3 ? (
+            <StepButton variant="submit" type="submit" />
+          ) : (
+            <StepButton variant="next" onClick={handlerContactPageNext} />
+          )
         }
       />
-    </div>
+    </form>
   );
 };

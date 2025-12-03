@@ -2,11 +2,11 @@
 import { StepProvider } from "@/shared/ui/step-context";
 import { STEP } from "@/entities/step/constants";
 import { Booking } from "@/widgets/booking";
-import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
 import { PixelTracker } from "@/features/facebook-pixel";
 import { useUrlParamStore } from "@/features/url-param/store";
 import { BookingLoading } from "./booking-loading";
 import { BookingError } from "./booking-error";
+import { useGetUrlsParams } from "@/features/url-param/hooks/use-get-urls-params";
 
 export const BookingPage = () => {
   const { params, loading, error } = useUrlParamStore();

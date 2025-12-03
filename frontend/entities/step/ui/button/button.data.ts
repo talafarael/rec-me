@@ -5,6 +5,12 @@ export const buttonData = {
     colorText: "#263238",
     bgBorder: "#D4AF37",
   },
+  submit: {
+    title: "Submit",
+    bgColor: "#D4AF37",
+    colorText: "#263238",
+    bgBorder: "#D4AF37",
+  },
   back: {
     title: "Back",
     bgColor: "transparent",

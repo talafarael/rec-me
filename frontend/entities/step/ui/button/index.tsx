@@ -1,7 +1,7 @@
 import { buttonData } from "./button.data";
 
 export interface StepButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: "next" | "back";
+  variant: "next" | "back" | "submit";
 }
 
 export const StepButton = ({ variant, ...props }: StepButtonProps) => {

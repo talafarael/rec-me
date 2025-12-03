@@ -9,7 +9,7 @@ export interface IUrlParamStore {
   params: IUrlParams | null;
   loading: boolean;
   error?: ZodIssue[];
-  loadParams: (params: IUrlParams | null) => void;
+  loadParams: (params: ISearchParams | null) => void;
 }
 
 const localMiddlewares = (f: StateCreator<IUrlParamStore>) =>
