@@ -1,197 +1,8 @@
-[00:00:00.695] Server  LOG      ✓ Ready in 506ms
-[00:00:03.382] Server  ERROR    ⨯ ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:04.248] Server  ERROR    ⨯ ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:04.745] Browser ERROR   uncaughtError: Error: ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:04.927] Browser ERROR   ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:00:04.927] Browser ERROR   ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:00:05.547] Server  ERROR    ⨯ ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:06.014] Browser ERROR   uncaughtError: Error: ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:06.152] Browser ERROR   ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:00:06.152] Browser ERROR   ./frontend/page/booking/ui/index.tsx:5:1
-Module not found: Can't resolve '@/features/url-param/hook/use-get-urls-params'
-  3 | import { STEP } from "@/entities/step/constants";
-  4 | import { Booking } from "@/widgets/booking";
-> 5 | import { useGetUrlsParams } from "@/features/url-param/hook/use-get-urls-params";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 | import { PixelTracker } from "@/features/facebook-pixel";
-  7 | import { useUrlParamStore } from "@/features/url-param/store";
-  8 | import { BookingLoading } from "./booking-loading";
-
-Import map: aliased to relative './features/url-param/hook/use-get-urls-params' inside of [project]/frontend
-
-Import trace:
-  Server Component:
-    ./frontend/page/booking/ui/index.tsx
-    ./frontend/app/booking/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:00:31.081] Server  LOG      ✓ Compiled in 49ms
-[00:00:31.696] Server  ERROR   (node:62698) Warning: `--localstorage-file` was provided without a valid path
+[00:00:00.546] Server  LOG      ✓ Ready in 409ms
+[00:00:03.439] Server  ERROR   (node:57289) Warning: `--localstorage-file` was provided without a valid path
 (Use `node --trace-warnings ...` to show where the warning was created)
-[00:00:32.193] Browser LOG     [{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["pixel"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub1"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub2"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub3"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub4"]}]
-[00:02:29.856] Browser LOG     work
-[00:03:30.252] Server  LOG      ✓ Compiled in 21ms
-[00:03:36.925] Server  LOG      ✓ Compiled in 16ms
-[00:04:29.002] Server  LOG      ✓ Compiled in 16ms
-[00:05:21.195] Server  LOG      ✓ Compiled in 17ms
-[00:05:52.232] Server  LOG      ✓ Compiled in 16ms
-[00:05:53.078] Browser ERROR   uncaughtError: ReferenceError: errors is not defined
-[00:06:43.567] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:06:43.651] Server  LOG      ✓ Compiled in 14ms
-[00:06:44.660] Browser LOG     {}
-[00:06:44.660] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:06:44.660] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+[00:00:03.984] Browser LOG     work
+[00:00:04.318] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -230,72 +41,8 @@ https://react.dev/link/hydration-mismatch
                   ...
         ...
 
-[00:06:44.660] Browser LOG     work
-[00:06:44.660] Browser LOG     {}
-[00:06:44.660] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:06:51.211] Browser LOG     {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"}}
-[00:06:51.211] Browser LOG     [2;38;2;124;124;124m%s[0m {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"}}
-[00:06:51.211] Browser LOG     {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:06:51.211] Browser LOG     [2;38;2;124;124;124m%s[0m {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:06:59.019] Browser LOG     {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"}}
-[00:06:59.019] Browser LOG     [2;38;2;124;124;124m%s[0m {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"manual"}}
-[00:06:59.019] Browser LOG     {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:06:59.019] Browser LOG     [2;38;2;124;124;124m%s[0m {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"fullName":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:07:00.315] Browser LOG     {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:07:00.315] Browser LOG     [2;38;2;124;124;124m%s[0m {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"},"phone":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:07:00.315] Browser LOG     {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:07:00.315] Browser LOG     [2;38;2;124;124;124m%s[0m {"email":{"message":"Invalid input: expected string, received undefined","ref":{},"type":"invalid_type"}}
-[00:07:00.315] Browser LOG     {}
-[00:07:00.315] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:00.998] Browser LOG     {}
-[00:07:00.998] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:00.999] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:07:00.999] Browser LOG     {}
-[00:07:00.999] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:00.999] Browser LOG     {}
-[00:07:00.999] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:01.312] Browser LOG     {}
-[00:07:01.312] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:01.766] Browser LOG     {}
-[00:07:01.766] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:01.766] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:07:01.766] Browser LOG     {}
-[00:07:01.766] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:01.766] Browser LOG     {}
-[00:07:01.766] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:01.766] Browser LOG     {}
-[00:07:01.766] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.368] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:07:02.368] Browser LOG     {}
-[00:07:02.369] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.369] Browser LOG     {}
-[00:07:02.369] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.369] Browser LOG     {}
-[00:07:02.369] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.627] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:07:02.627] Browser LOG     {}
-[00:07:02.627] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.627] Browser LOG     {}
-[00:07:02.627] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.627] Browser LOG     {}
-[00:07:02.627] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.796] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:07:02.796] Browser LOG     {}
-[00:07:02.796] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.796] Browser LOG     {}
-[00:07:02.796] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:02.796] Browser LOG     {}
-[00:07:02.796] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:20.295] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:07:20.295] Browser LOG     {}
-[00:07:20.296] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:20.296] Browser LOG     {}
-[00:07:20.296] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:20.296] Browser LOG     {}
-[00:07:20.296] Browser LOG     [2;38;2;124;124;124m%s[0m {}
-[00:07:41.697] Server  LOG      ✓ Compiled in 17ms
-[00:07:55.674] Server  LOG      ✓ Compiled in 14ms
-[00:08:02.007] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+[00:00:04.318] Browser LOG     work
+[00:00:07.741] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -334,31 +81,134 @@ https://react.dev/link/hydration-mismatch
                   ...
         ...
 
-[00:08:02.007] Browser LOG     work
-[00:08:09.949] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:08:10.818] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:08:11.877] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:08:56.577] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:08:56.877] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:08:57.162] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:10:27.854] Server  LOG      ✓ Compiled in 13ms
-[00:10:31.197] Server  LOG      ✓ Compiled in 18ms
-[00:10:37.897] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:10:52.802] Server  LOG      ✓ Compiled in 13ms
-[00:10:54.599] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:11:07.670] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:11:09.627] Browser LOG     work
-[00:11:11.493] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:11:12.161] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:11:12.724] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:12:12.310] Server  LOG      ✓ Compiled in 14ms
-[00:12:43.356] Browser LOG     [{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["pixel"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub1"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub2"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub3"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["sub4"]}]
-[00:12:46.566] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:14:30.069] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:14:34.204] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:14:36.959] Browser LOG     work
-[00:14:38.790] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:14:39.453] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:14:39.962] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:15:27.416] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
-[00:16:22.285] Browser LOG     {"email":"artemk2504@gmail.com","fullName":"Січкар farael fara","phone":"0984664621","verifyCodePhone":"afa1"}
+[00:00:07.741] Browser LOG     work
+[00:00:08.489] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="booking/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url={"/booking..."} tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="/frontend/...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <BookingPage>
+                          <BookingLoading>
+                            <CircularProgress sx={{color:"#ff...", ...}}>
+                              <MuiCircularProgress-root className="MuiCircula..." style={{width:40,height:40}} ...>
+                                <Insertion>
++                               <span
++                                 className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularPro..."
++                                 style={{width:40,height:40}}
++                                 role="progressbar"
++                               >
+-                               <style data-emotion="css 1668gbk-MuiCircularProgress-root animation-61bdi0" data-s="">
+                    ...
+                  ...
+        ...
+
+[00:00:08.489] Browser LOG     work
+[00:00:59.035] Server  LOG      ✓ Compiled in 38ms
+[00:01:20.067] Server  LOG      ✓ Compiled in 78ms
+[00:01:27.438] Server  LOG      ✓ Compiled in 10ms
+[00:02:01.956] Server  LOG      ✓ Compiled in 119ms
+[00:02:02.665] Browser LOG     work
+[00:02:03.257] Browser LOG     work
+[00:10:36.788] Server  LOG      ✓ Compiled in 41ms
+[00:10:50.010] Browser LOG     work
+[00:10:50.501] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="booking/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url={"/booking..."} tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="/frontend/...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <BookingPage>
+                          <BookingLoading>
+                            <CircularProgress sx={{color:"#ff...", ...}}>
+                              <MuiCircularProgress-root className="MuiCircula..." style={{width:40,height:40}} ...>
+                                <Insertion>
++                               <span
++                                 className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularPro..."
++                                 style={{width:40,height:40}}
++                                 role="progressbar"
++                               >
+-                               <style data-emotion="css 1668gbk-MuiCircularProgress-root animation-61bdi0" data-s="">
+                    ...
+                  ...
+        ...
+
+[00:10:50.501] Browser LOG     work
+[00:13:11.337] Server  LOG      ✓ Compiled in 51ms
+[00:13:24.435] Server  LOG      ✓ Compiled in 12ms
+[00:13:51.486] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="booking/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url={"/booking..."} tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="/frontend/...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <BookingPage>
+                          <BookingLoading>
+                            <CircularProgress sx={{color:"#ff...", ...}}>
+                              <MuiCircularProgress-root className="MuiCircula..." style={{width:40,height:40}} ...>
+                                <Insertion>
++                               <span
++                                 className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularPro..."
++                                 style={{width:40,height:40}}
++                                 role="progressbar"
++                               >
+-                               <style data-emotion="css 1668gbk-MuiCircularProgress-root animation-61bdi0" data-s="">
+                    ...
+                  ...
+        ...
+
+[00:13:51.486] Browser LOG     work

@@ -10,7 +10,7 @@ export const inputsContactsData: IInputForm<BookingForm>[] = [
   {
     name: "phone",
     field: "Phone number",
-    type: "default",
+    type: "phone",
   },
   {
     name: "email",

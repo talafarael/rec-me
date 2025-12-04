@@ -8,8 +8,12 @@ export interface StepButtonBarProps {
 export const StepButtonBar = ({ childrenNextButton }: StepButtonBarProps) => {
   const { step, backStep } = useStep();
   return (
-    <div>
-      {STEP.MIN < step && <StepButton onClick={backStep} variant="back" />}
+    <div className="mt-[20px] flex justify-between w-[352px] gap-[20px]">
+      {STEP.MIN < step ? (
+        <StepButton onClick={backStep} variant="back" type="button" />
+      ) : (
+        <div></div>
+      )}
       {childrenNextButton}
     </div>
   );

@@ -1,7 +1,8 @@
 "use client";
+
 import { BookingForm } from "@/features/booking-form/schemas";
 import { InputsContacts } from "@/features/booking-form/ui/inputs-contacts";
-import { InputsVerifyCode } from "@/features/verify-code/ui/inputs-verify-code";
+import { VerifyCode } from "@/features/verify-code";
 import { useStep } from "@/shared/ui/step-context";
 import { Control } from "react-hook-form";
 
@@ -18,7 +19,7 @@ export const BookingSteper = ({ control }: BookingSteperProps) => {
     case 2:
       return <div>Step 2 content</div>;
     case 3:
-      return <InputsVerifyCode />;
+      return <VerifyCode control={control} />;
     default:
       return <div>Unknown step</div>;
   }

@@ -9,25 +9,35 @@ import { verifyCodeSchema } from "../../schemas/verify-code.schema";
 import { useUrlParamStore } from "@/features/url-param/store";
 import { useSendLead } from "@/features/lead";
 import { SendLeadDto } from "@/features/lead/dto/send-lead.dto";
+import { useRef, useEffect } from "react";
+import { CustomErrorText } from "@/shared/ui/custom-error-text";
 
 export const FormBooking = () => {
   const { step, nextStep } = useStep();
   const { params } = useUrlParamStore();
-  const { handlerSendLead } = useSendLead();
-  const {
-    control,
-    getValues,
-    setError,
-    clearErrors,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm<BookingForm>({
-    resolver: zodResolver(bookingSchema),
-    defaultValues: {
-      verifyCodePhone: "afa1",
-    },
-  });
+  const { handlerSendLead, error, loading } = useSendLead();
+  const isSubmitAllowedRef = useRef(false);
+
+  useEffect(() => {
+    if (step === 3) {
+      isSubmitAllowedRef.current = false;
+      const timer = setTimeout(() => {
+        isSubmitAllowedRef.current = true;
+      }, 300);
+      return () => clearTimeout(timer);
+    } else {
+      isSubmitAllowedRef.current = true;
+    }
+  }, [step]);
+
+  const { control, getValues, setError, clearErrors, handleSubmit } =
+    useForm<BookingForm>({
+      resolver: zodResolver(bookingSchema),
+      defaultValues: {},
+    });
   const handlerContactPageNext = () => {
+    clearErrors();
+
     const values = getValues();
     let result;
     switch (step) {
@@ -58,6 +68,9 @@ export const FormBooking = () => {
     nextStep();
   };
   const handlerSubmit = (data: BookingForm) => {
+    if (!isSubmitAllowedRef.current) {
+      return;
+    }
     console.log(data);
     if (!params) return;
     const body: SendLeadDto = {
@@ -67,18 +80,42 @@ export const FormBooking = () => {
     };
     handlerSendLead(body);
   };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (step === 3 && !isSubmitAllowedRef.current) {
+      e.preventDefault();
+      return;
+    }
+    handleSubmit(handlerSubmit)(e);
+  };
+
   return (
-    <form onSubmit={handleSubmit(handlerSubmit)}>
+    <form
+      className="flex flex-col justify-center items-center mt-[-3%] h-[100%]"
+      onSubmit={handleFormSubmit}
+    >
       <BookingSteper
         handlerContactsPage={handlerContactPageNext}
         control={control}
       />
+      <CustomErrorText message={error} />
       <StepButtonBar
         childrenNextButton={
           step == 3 ? (
-            <StepButton variant="submit" type="submit" />
+            <StepButton
+              variant="submit"
+              type="submit"
+              onClick={(e) => {
+                isSubmitAllowedRef.current = true;
+              }}
+            />
           ) : (
-            <StepButton variant="next" onClick={handlerContactPageNext} />
+            <StepButton
+              disabled={loading}
+              variant="next"
+              type="button"
+              onClick={handlerContactPageNext}
+            />
           )
         }
       />

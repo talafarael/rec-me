@@ -9,7 +9,7 @@ export const CustomInput = ({
     <input
       onChange={onChange}
       value={value ?? ""}
-      className="w-[352px] h-[57px] rounded-[15px]"
+      className="w-[352px] pl-[10px] h-[57px] rounded-[15px]"
       {...props}
     />
   );
