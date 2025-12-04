@@ -12,7 +12,7 @@ export interface FormInputProps<T extends FieldValues> {
   children: (
     field: ControllerRenderProps<T>,
     error?: string,
-  ) => React.ReactNode;
+  ) => React.ReactElement;
 }
 
 export const FormInput = <T extends FieldValues>({
