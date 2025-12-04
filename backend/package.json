@@ -32,7 +32,8 @@
     "firebase-admin": "^13.6.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "sendpulse-api": "^1.1.7"
+    "sendpulse-api": "^1.1.7",
+    "twilio": "^5.10.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

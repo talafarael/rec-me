@@ -16,7 +16,6 @@ export class SendpluseService {
     private readonly configService: ConfigService,
     private readonly httpService: HttpService,
   ) {
-    console.log(this.configService.get<string>('sendpulse.clientId'));
     this.secret = this.configService.get<string>('sendpulse.secret')!;
     this.clientId = this.configService.get<string>('sendpulse.clientId')!;
     this.addressBookId = this.configService.get<string>(

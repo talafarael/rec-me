@@ -4,4 +4,9 @@ export default () => ({
     clientId: process.env.SENDPULSE_ID,
     addressBookId: process.env.SENDPULSE_ADDRESS_BOOK_ID,
   },
+  twilio: {
+    accountsid: process.env.TWILIO_ACCOUNTSID,
+    authtoken: process.env.TWILIO_AUTHTOKEN,
+    phone: process.env.TWILIO_PHONE,
+  },
 });
