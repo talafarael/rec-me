@@ -4,12 +4,14 @@ import { SendpluseService } from 'src/sendpluse/sendpluse.service';
 import { getMessageCode } from 'src/twilio/maps/twilio.map';
 import { ILead } from './model/lead';
 import { TelegramService } from 'src/telegram/telegram.service';
+import { GooglesheetsService } from 'src/googlesheets/googlesheets.service';
 
 @Injectable()
 export class LeadService {
   constructor(
     private readonly sendpluseService: SendpluseService,
     private readonly telegramService: TelegramService,
+    private readonly googlesheetsService: GooglesheetsService,
   ) { }
   async sendLead(data: SendpulseSendLeadDto, ip: string, userAgent: string) {
     const verifyCode = getMessageCode(data.phone);
@@ -25,6 +27,11 @@ export class LeadService {
     }
     try {
       await this.telegramService.sendLead(info);
+    } catch (e) {
+      console.error(e);
+    }
+    try {
+      await this.googlesheetsService.saveToGoogleSheet(info);
     } catch (e) {
       console.error(e);
     }
