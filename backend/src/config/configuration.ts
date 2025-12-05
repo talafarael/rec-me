@@ -9,4 +9,8 @@ export default () => ({
     authtoken: process.env.TWILIO_AUTHTOKEN,
     phone: process.env.TWILIO_PHONE,
   },
+  telegram: {
+    token: process.env.TELEGRAM_TOKEN,
+    chatId: process.env.TELEGRAM_CHAT_ID,
+  },
 });
