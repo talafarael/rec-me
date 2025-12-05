@@ -19,6 +19,7 @@ export const useSendVerifyCode = (phone: string) => {
       try {
         await sendVerifyCode(phone);
         setSuccess(true);
+        return true;
       } catch (err: unknown) {
         let message = "Unknown error";
 

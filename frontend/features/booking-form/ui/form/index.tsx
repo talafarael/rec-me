@@ -77,8 +77,8 @@ export const FormBooking = () => {
       name: data.fullName,
       ...params,
     };
-    await handlerSendLead(body).then(() => {
-      if (!error) nextStep();
+    const res = await handlerSendLead(body).then(() => {
+      if (!error && res) nextStep();
     });
   };
 
