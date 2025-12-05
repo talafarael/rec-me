@@ -67,18 +67,19 @@ export const FormBooking = () => {
     clearErrors();
     nextStep();
   };
-  const handlerSubmit = (data: BookingForm) => {
+  const handlerSubmit = async (data: BookingForm) => {
     if (!isSubmitAllowedRef.current) {
       return;
     }
-    console.log(data);
     if (!params) return;
     const body: SendLeadDto = {
       ...data,
       name: data.fullName,
       ...params,
     };
-    handlerSendLead(body);
+    await handlerSendLead(body).then(() => {
+      if (!error) nextStep();
+    });
   };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -91,34 +92,35 @@ export const FormBooking = () => {
 
   return (
     <form
-      className="flex flex-col justify-center items-center mt-[-3%] h-[100%]"
+      className="flex flex-col justify-center items-center  h-[100%]"
       onSubmit={handleFormSubmit}
     >
       <BookingSteper
         handlerContactsPage={handlerContactPageNext}
         control={control}
-      />
-      <CustomErrorText message={error} />
-      <StepButtonBar
-        childrenNextButton={
-          step == 3 ? (
-            <StepButton
-              variant="submit"
-              type="submit"
-              onClick={(e) => {
-                isSubmitAllowedRef.current = true;
-              }}
-            />
-          ) : (
-            <StepButton
-              disabled={loading}
-              variant="next"
-              type="button"
-              onClick={handlerContactPageNext}
-            />
-          )
-        }
-      />
+      >
+        <>
+          <CustomErrorText message={error} />
+          <StepButtonBar>
+            {step == 3 ? (
+              <StepButton
+                variant="submit"
+                type="submit"
+                onClick={() => {
+                  isSubmitAllowedRef.current = true;
+                }}
+                disabled={loading}
+              />
+            ) : (
+              <StepButton
+                variant="next"
+                type="button"
+                onClick={handlerContactPageNext}
+              />
+            )}
+          </StepButtonBar>
+        </>
+      </BookingSteper>
     </form>
   );
 };

@@ -1,11 +1,11 @@
 import { useStep } from "@/shared/ui/step-context";
 import { StepButton } from "../button";
 import { STEP } from "../../constants";
-import { ReactNode } from "react";
+
 export interface StepButtonBarProps {
-  childrenNextButton: ReactNode;
+  children?: React.ReactNode;
 }
-export const StepButtonBar = ({ childrenNextButton }: StepButtonBarProps) => {
+export const StepButtonBar = ({ children }: StepButtonBarProps) => {
   const { step, backStep } = useStep();
   return (
     <div className="mt-[20px] flex justify-between w-[352px] gap-[20px]">
@@ -14,7 +14,7 @@ export const StepButtonBar = ({ childrenNextButton }: StepButtonBarProps) => {
       ) : (
         <div></div>
       )}
-      {childrenNextButton}
+      {children}
     </div>
   );
 };

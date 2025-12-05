@@ -1,1 +1,51 @@
-[00:00:00.610] Server  LOG      ✓ Ready in 447ms
+[00:00:00.545] Server  LOG      ✓ Ready in 402ms
+[00:00:03.345] Server  ERROR   (node:72389) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+[00:00:05.399] Browser LOG     work
+[00:00:13.190] Server  LOG      ✓ Compiled in 14ms
+[00:00:17.416] Browser LOG     work
+[00:00:17.526] Browser WARN    Image with src "/_next/static/media/Group 5.b12f1efa.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:00:49.766] Browser LOG     work
+[00:01:05.858] Browser LOG     work
+[00:01:05.963] Browser WARN    Image with src "/_next/static/media/Group 5.b12f1efa.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:01:30.926] Server  LOG      ✓ Compiled in 486ms
+[00:01:43.955] Server  LOG      ✓ Compiled in 68ms
+[00:01:54.553] Server  LOG      ✓ Compiled in 49ms
+[00:01:59.510] Server  LOG      ✓ Compiled in 49ms
+[00:02:14.545] Server  LOG      ✓ Compiled in 45ms
+[00:02:15.667] Server  LOG      ✓ Compiled in 35ms
+[00:02:18.497] Browser LOG     work
+[00:02:18.651] Browser WARN    Image with src "/_next/static/media/Group 5.b12f1efa.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:02:56.205] Server  LOG      ✓ Compiled in 18ms
+[00:03:05.490] Server  LOG      ✓ Compiled in 15ms
+[00:03:09.714] Server  LOG      ✓ Compiled in 14ms
+[00:03:21.468] Server  LOG      ✓ Compiled in 13ms
+[00:03:38.862] Server  LOG      ✓ Compiled in 29ms
+[00:03:58.251] Server  LOG      ✓ Compiled in 15ms
+[00:18:18.882] Server  LOG      ✓ Compiled in 17ms
+[00:18:18.972] Browser ERROR   uncaughtError: ReferenceError: InputsContacts is not defined
+[00:18:22.853] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:18:22.927] Server  LOG      ✓ Compiled in 16ms
+[00:18:22.995] Browser ERROR   uncaughtError: ReferenceError: InputsContacts is not defined
+[00:18:23.812] Browser ERROR   uncaughtError: ReferenceError: InputsContacts is not defined
+[00:18:25.521] Server  LOG      ✓ Compiled in 16ms
+[00:18:25.575] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:18:26.480] Browser ERROR   uncaughtError: ReferenceError: InputsContacts is not defined
+[00:18:30.266] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:18:30.312] Server  LOG      ✓ Compiled in 80ms
+[00:18:31.351] Browser LOG     work
+[00:18:39.475] Server  LOG      ✓ Compiled in 16ms
+[00:19:41.548] Server  LOG      ✓ Compiled in 14ms
+[00:19:58.623] Server  LOG      ✓ Compiled in 17ms
+[00:20:15.719] Browser LOG     work
+[00:20:52.625] Server  LOG      ✓ Compiled in 15ms
+[00:20:55.658] Browser LOG     work
+[00:21:43.828] Server  LOG      ✓ Compiled in 21ms
+[00:22:01.103] Server  LOG      ✓ Compiled in 13ms
+[00:40:31.390] Server  LOG      ✓ Compiled in 43ms
+[00:41:32.137] Server  LOG      ✓ Compiled in 13ms
+[00:41:36.749] Server  LOG      ✓ Compiled in 46ms
+[00:42:06.922] Server  LOG      ✓ Compiled in 20ms

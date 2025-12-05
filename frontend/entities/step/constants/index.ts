@@ -1,5 +1,6 @@
 export const STEP = {
   MIN: 1,
-  MAX: 3,
+  MAX: 4,
   DEFAULT: 1,
-} as const;
+  NOT_SHOW_BUTTON: [2, 4],
+};

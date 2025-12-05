@@ -6,6 +6,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { CustomThemeProvider } from "@/shared/ui/custom-theme-provider";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-hidden m-[0px] h-[100vh] `}
       >
+        <Script
+          src="https://22901a9fe14d.us-east-1.captcha-sdk.awswaf.com/22901a9fe14d/jsapi.js"
+          strategy="afterInteractive"
+        />
         <CustomThemeProvider>{children}</CustomThemeProvider>
       </body>
     </html>

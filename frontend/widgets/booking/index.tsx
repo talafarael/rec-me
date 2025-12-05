@@ -4,8 +4,7 @@ import { FormBooking } from "@/features/booking-form/ui/form";
 
 export const Booking = () => {
   return (
-    <div className="h-[100vh]">
-      <StepProgressBar />
+    <div className="flex justify-center">
       <FormBooking />;
     </div>
   );
