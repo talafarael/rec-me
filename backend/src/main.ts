@@ -5,7 +5,10 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: true,
+    origin: ['https://farael-frontend.esp.ovh'],
+    methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
+    credentials: true,
+    allowedHeaders: 'Content-Type, Authorization, x-waf-captcha-token',
   });
   app.useGlobalPipes(
     new ValidationPipe({
