@@ -77,9 +77,10 @@ export const FormBooking = () => {
       name: data.fullName,
       ...params,
     };
-    const res = await handlerSendLead(body).then(() => {
-      if (!error && res) nextStep();
-    });
+    const res = await handlerSendLead(body);
+    if (res) {
+      nextStep();
+    }
   };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
