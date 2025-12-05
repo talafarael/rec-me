@@ -4,7 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: '*' });
+  app.enableCors({ origin: 'farael-frontend.esp.ovh' });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
