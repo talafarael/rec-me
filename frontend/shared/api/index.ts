@@ -1,15 +1,16 @@
 import axios, { AxiosResponse } from "axios";
-const PORT = process.env.next_public_be_url || "https://farael-backend.esp.ovh";
+const PORT = process.env.next_public_be_url || "http://localhost:9000";
+// "https://farael-backend.esp.ovh";
 
 const API_PORT = `${PORT}`;
 
 export const createApi = () => {
-  // const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   return axios.create({
     baseURL: API_PORT,
     headers: {
-      // Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 };

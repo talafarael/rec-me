@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useUrlParamStore } from "../store";
-import { ISearchParams } from "../types/url-params";
+import { ISearchParams } from "@/entities/url/types";
 
 export const useGetUrlsParams = () => {
   const searchParams = useSearchParams();

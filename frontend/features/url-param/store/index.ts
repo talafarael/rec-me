@@ -1,9 +1,9 @@
 "use client";
 import { create, StateCreator } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
-import { ISearchParams } from "../types/url-params";
 import { IUrlParams, urlParamsSchema } from "../schemas/url-prams.schema";
 import { ZodIssue } from "zod";
+import { ISearchParams } from "@/entities/url/types";
 
 export interface IUrlParamStore {
   params: IUrlParams | null;
