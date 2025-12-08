@@ -34,6 +34,19 @@ export class SendpluseService {
       throw new HttpException(message, HttpStatus.BAD_REQUEST);
     }
   }
+
+  async getMailingList(id?: number) {
+    try {
+      const token = await this.authApi();
+      const addressBookId = id || Number(this.addressBookId);
+      return this.getMailingListApi(token, addressBookId);
+    } catch (e) {
+      const message = e?.response?.data
+        ? JSON.stringify(e.response.data)
+        : e.message;
+      throw new HttpException(message, HttpStatus.BAD_REQUEST);
+    }
+  }
   private async sendLeadApi(token: string, data: SendpulseSendLeadDto) {
     const allowedVars = [
       'name',
@@ -90,6 +103,27 @@ export class SendpluseService {
       throw new HttpException(message, HttpStatus.BAD_REQUEST);
     }
   }
+  private async getMailingListApi(token: string, id: number) {
+    try {
+      const resp: AxiosResponse = await firstValueFrom(
+        this.httpService.get(
+          `https://api.sendpulse.com/addressbooks/${id}/emails`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        ),
+      );
+
+      return resp.data;
+    } catch (e) {
+      const message = e?.response?.data ? e.response.data : e.message;
+      throw new HttpException(message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   private async authApi(): Promise<string> {
     console.log(this.clientId);
     const resp: AxiosResponse<IAuthSendpluse> = await firstValueFrom(

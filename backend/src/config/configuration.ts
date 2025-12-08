@@ -13,4 +13,11 @@ export default () => ({
     token: process.env.TELEGRAM_TOKEN,
     chatId: process.env.TELEGRAM_CHAT_ID,
   },
+  admin: {
+    password: process.env.ADMIN_PASSWORD,
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET || 'your-secret-key',
+    expiresIn: process.env.JWT_EXPIRES_IN || '24h',
+  },
 });

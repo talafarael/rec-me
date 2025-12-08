@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { LeadModule } from './lead/lead.module';
 import { TelegramModule } from './telegram/telegram.module';
 import { GooglesheetsModule } from './googlesheets/googlesheets.module';
+import { AuthModule } from './auth/auth.module';
 import configuration from './config/configuration';
 
 @Module({
@@ -18,6 +19,7 @@ import configuration from './config/configuration';
     LeadModule,
     TelegramModule,
     GooglesheetsModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
