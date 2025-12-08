@@ -8,7 +8,10 @@ async function bootstrap(): Promise<void> {
     origin: ['https://farael-frontend.esp.ovh', 'http://localhost:3000'],
     methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     credentials: true,
-    allowedHeaders: 'Content-Type, Authorization, x-waf-captcha-token',
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-waf-captcha-token'],
+    exposedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   });
   app.useGlobalPipes(
     new ValidationPipe({
