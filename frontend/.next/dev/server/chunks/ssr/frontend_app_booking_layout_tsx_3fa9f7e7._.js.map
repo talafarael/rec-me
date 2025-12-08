@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/farael/GitHub/rec-me/frontend/app/booking/layout.tsx"],"sourcesContent":["export default function RootLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode;\n}>) {\n  return <div className=\"bg-main h-[100vh] \">{children}</div>;\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS,WAAW,EACjC,QAAQ,EAGR;IACA,qBAAO,0PAAC;QAAI,WAAU;kBAAsB;;;;;;AAC9C","debugId":null}}]
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/farael/GitHub/rec-me/frontend/app/booking/layout.tsx"],"sourcesContent":["export default function RootLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode;\n}>) {\n  return (\n    <div className=\" overflow-y-hidden bg-main h-[100vh] \">{children}</div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS,WAAW,EACjC,QAAQ,EAGR;IACA,qBACE,0PAAC;QAAI,WAAU;kBAAyC;;;;;;AAE5D","debugId":null}}]
 }

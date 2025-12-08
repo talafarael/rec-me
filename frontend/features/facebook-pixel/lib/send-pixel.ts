@@ -25,8 +25,15 @@ export const sendPixel = (pixelId: string, events: PixelEvent) => {
 
       fbqFunction.push = (...args: unknown[]): void => {
         const [command, ...rest] = args;
-        if (command === "init" || command === "track" || command === "trackCustom") {
-          (fbqFunction as (command: string, ...args: unknown[]) => void)(command, ...rest);
+        if (
+          command === "init" ||
+          command === "track" ||
+          command === "trackCustom"
+        ) {
+          (fbqFunction as (command: string, ...args: unknown[]) => void)(
+            command,
+            ...rest,
+          );
         }
       };
       fbqFunction.loaded = true;
