@@ -6,6 +6,9 @@ import { LeadModule } from './lead/lead.module';
 import { TelegramModule } from './telegram/telegram.module';
 import { GooglesheetsModule } from './googlesheets/googlesheets.module';
 import { AuthModule } from './auth/auth.module';
+import { DatabaseModule } from './database/database.module';
+import { LeadformConfigModule } from './leadform-config/leadform-config.module';
+import { TokenModule } from './token/token.module';
 import configuration from './config/configuration';
 
 @Module({
@@ -20,6 +23,9 @@ import configuration from './config/configuration';
     TelegramModule,
     GooglesheetsModule,
     AuthModule,
+    DatabaseModule,
+    LeadformConfigModule,
+    TokenModule,
   ],
   controllers: [],
   providers: [],
