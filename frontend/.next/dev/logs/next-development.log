@@ -1,25 +1,46 @@
-[00:00:00.956] Server  LOG      ✓ Ready in 674ms
-[00:02:09.828] Server  ERROR   (node:49618) Warning: `--localstorage-file` was provided without a valid path
+[00:00:00.896] Server  LOG      ✓ Ready in 723ms
+[00:02:17.749] Server  LOG     null
+[00:02:17.756] Server  ERROR   (node:8039) Warning: `--localstorage-file` was provided without a valid path
 (Use `node --trace-warnings ...` to show where the warning was created)
-[00:02:17.101] Browser LOG     pixel
-[00:02:17.101] Browser LOG     pixel
-[00:02:17.101] Browser LOG     work
-[00:02:17.101] Browser LOG     [2;38;2;124;124;124m%s[0m pixel
-[00:02:17.209] Browser WARN    [Meta Pixel] - Multiple pixels with conflicting versions were detected on this page.
-[00:02:17.209] Browser WARN    [Meta Pixel] - Invalid PixelID: null.
-[00:02:28.022] Server  LOG      ✓ Compiled in 147ms
-[00:06:04.115] Browser LOG     pixel
-[00:06:04.115] Browser LOG     pixel
-[00:06:04.115] Browser LOG     work
-[00:06:04.115] Browser LOG     [2;38;2;124;124;124m%s[0m pixel
-[00:06:04.219] Browser WARN    [Meta Pixel] - Invalid PixelID: null.
-[00:07:09.674] Server  LOG      ✓ Compiled in 100ms
-[00:07:25.502] Server  LOG      ✓ Compiled in 19ms
-[00:07:32.278] Browser LOG     pixel
-[00:07:32.279] Browser LOG     work
-[00:07:32.279] Browser LOG     [2;38;2;124;124;124m%s[0m pixel
-[00:07:33.053] Browser WARN    [Meta Pixel] - Invalid PixelID: null.
-[00:15:02.305] Browser LOG     pixel
-[00:15:02.305] Browser LOG     work
-[00:15:02.305] Browser LOG     [2;38;2;124;124;124m%s[0m pixel
-[00:15:24.123] Server  LOG      ✓ Compiled in 75ms
+[00:02:18.532] Browser LOG     null
+[00:02:18.532] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:02:18.532] Browser LOG     {"api":{"url":"https://dca.ua/%botname%?stat=type[1]=CRM&type[2]=user&utm_bot=%botname%&name[1]=%5Bname%5D&name[2]=%5Bsurname%5D&name[3]=%5B1_field_%5D&name[4]=%5B2_field_%5D&name[5]=%5B3_field_%5D&name[6]=%5B4_field_%5D&name[7]=%5Bphone%5D&name[8]=%5Bemail%5D"},"created_at":"2025-12-10T22:43:37.419Z","id":"84dac65d-1d6d-4779-b8b0-ca3fc9926ea2","notifications":{"googleSheetUrl":"https://docs.google.com/spreadsheets/d/1EOdZCdBeC0pMTKNEaXK5aGfo827y-lrIm7UrJYI-uNQ","googleToken":"{\"type\":\"service_account\",\"project_id\":\"test-project\",\"private_key_id\":\"test-key-id\",\"private_key\":\"-----BEGIN PRIVATE KEY-----\\nTEST_KEY\\n-----END PRIVATE KEY-----\\n\",\"client_email\":\"test@test-project.iam.gserviceaccount.com\",\"client_id\":\"123456789\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\"}","telegramBotToken":"1234567890:ABCdefGHIjklMNOpqrsTUVwxyz","telegramChatId":"-1001234567890"},"osnovanie":{"backButtonText":"Backafaffafafa","forwardButtonText":"Next","previewBackText":"You can go back and change the data","thankYouText":"Thank you for your application! We will contact you soon.","useCaptcha":true,"usePhoneVerification":true},"settings":{"api":true,"notifications":true,"osnovanie":true,"step1":true,"step2":true,"whatsapp":true},"step1":{"field1Placeholder":"Enter your name","field2Placeholder":"Enter your phone number","field3Placeholder":"Enter your email","fieldsCount":3},"step2":{"emailPlaceholder":"Email","nameSurnamePlaceholder":"Name & Surname","phonePlaceholder":"Phone number"},"updated_at":"2025-12-11T01:26:24.868Z","whatsapp":{"activateButton":true,"contactNumbers":"+380501234567, +380671234567","linkTemplate":"https://wa.me/%phone%?text=%message%","messageTemplate":"Hello, my name is [name] [surname]\nI would like to contact you to discuss an important topic for me\nMy email: [email]\nMy additional phone number: [phone]\nAdditional information: [1_field_]"}}
+[00:02:18.532] Browser LOG     [2;38;2;124;124;124m%s[0m {"api":{"url":"https://dca.ua/%botname%?stat=type[1]=CRM&type[2]=user&utm_bot=%botname%&name[1]=%5Bname%5D&name[2]=%5Bsurname%5D&name[3]=%5B1_field_%5D&name[4]=%5B2_field_%5D&name[5]=%5B3_field_%5D&name[6]=%5B4_field_%5D&name[7]=%5Bphone%5D&name[8]=%5Bemail%5D"},"created_at":"2025-12-10T22:43:37.419Z","id":"84dac65d-1d6d-4779-b8b0-ca3fc9926ea2","notifications":{"googleSheetUrl":"https://docs.google.com/spreadsheets/d/1EOdZCdBeC0pMTKNEaXK5aGfo827y-lrIm7UrJYI-uNQ","googleToken":"{\"type\":\"service_account\",\"project_id\":\"test-project\",\"private_key_id\":\"test-key-id\",\"private_key\":\"-----BEGIN PRIVATE KEY-----\\nTEST_KEY\\n-----END PRIVATE KEY-----\\n\",\"client_email\":\"test@test-project.iam.gserviceaccount.com\",\"client_id\":\"123456789\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\"}","telegramBotToken":"1234567890:ABCdefGHIjklMNOpqrsTUVwxyz","telegramChatId":"-1001234567890"},"osnovanie":{"backButtonText":"Backafaffafafa","forwardButtonText":"Next","previewBackText":"You can go back and change the data","thankYouText":"Thank you for your application! We will contact you soon.","useCaptcha":true,"usePhoneVerification":true},"settings":{"api":true,"notifications":true,"osnovanie":true,"step1":true,"step2":true,"whatsapp":true},"step1":{"field1Placeholder":"Enter your name","field2Placeholder":"Enter your phone number","field3Placeholder":"Enter your email","fieldsCount":3},"step2":{"emailPlaceholder":"Email","nameSurnamePlaceholder":"Name & Surname","phonePlaceholder":"Phone number"},"updated_at":"2025-12-11T01:26:24.868Z","whatsapp":{"activateButton":true,"contactNumbers":"+380501234567, +380671234567","linkTemplate":"https://wa.me/%phone%?text=%message%","messageTemplate":"Hello, my name is [name] [surname]\nI would like to contact you to discuss an important topic for me\nMy email: [email]\nMy additional phone number: [phone]\nAdditional information: [1_field_]"}}
+[00:04:33.397] Browser LOG     null
+[00:04:33.397] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:06:30.951] Server  LOG     null
+[00:06:31.631] Browser LOG     null
+[00:06:31.631] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:06:31.631] Browser LOG     null
+[00:06:31.631] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:06:51.764] Browser LOG     null
+[00:06:51.764] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:06:56.563] Server  LOG     null
+[00:06:57.062] Browser LOG     null
+[00:06:57.062] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:06:57.062] Browser LOG     null
+[00:06:57.062] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:07:05.156] Server  LOG     null
+[00:07:05.637] Browser LOG     null
+[00:07:05.637] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:07:05.637] Browser LOG     null
+[00:07:05.637] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:09:11.919] Browser LOG     null
+[00:09:11.919] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:14:30.912] Server  LOG     null
+[00:14:31.692] Browser LOG     null
+[00:14:31.692] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:14:31.692] Browser LOG     null
+[00:14:31.692] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:16:33.634] Server  LOG      ✓ Compiled in 48ms
+[00:16:41.501] Server  LOG      ✓ Compiled in 57ms
+[00:16:46.580] Browser LOG     null
+[00:16:46.580] Browser LOG     [2;38;2;124;124;124m%s[0m null
+[00:21:08.124] Server  LOG      ✓ Compiled in 32ms
+[00:21:24.362] Server  LOG      ✓ Compiled in 25ms
+[00:27:26.708] Server  LOG      ✓ Compiled in 15ms
+[00:27:38.988] Server  LOG      ✓ Compiled in 27ms
+[00:27:46.271] Server  LOG      ✓ Compiled in 29ms
+[00:28:03.604] Server  LOG      ✓ Compiled in 24ms
+[00:28:17.094] Browser LOG     {"api":{"url":"https://dca.ua/%botname%?stat=type[1]=CRM&type[2]=user&utm_bot=%botname%&name[1]=%5Bname%5D&name[2]=%5Bsurname%5D&name[3]=%5B1_field_%5D&name[4]=%5B2_field_%5D&name[5]=%5B3_field_%5D&name[6]=%5B4_field_%5D&name[7]=%5Bphone%5D&name[8]=%5Bemail%5D"},"created_at":"2025-12-10T22:43:37.419Z","id":"84dac65d-1d6d-4779-b8b0-ca3fc9926ea2","osnovanie":{"backButtonText":"Backafaffafafa","forwardButtonText":"Next","previewBackText":"You can go back and change the data","thankYouText":"Thank you for your application! We will contact you soon.","useCaptcha":true,"usePhoneVerification":true},"settings":{"api":true,"notifications":true,"osnovanie":true,"step1":true,"step2":true,"whatsapp":true},"step1":{"field1Placeholder":"Enter your name","field2Placeholder":"Enter your phone number","field3Placeholder":"Enter your email","fieldsCount":3},"step2":{"emailPlaceholder":"Email","nameSurnamePlaceholder":"Name & Surname","phonePlaceholder":"Phone number"},"updated_at":"2025-12-11T01:26:24.868Z","whatsapp":{"activateButton":true,"contactNumbers":"+380501234567, +380671234567","linkTemplate":"https://wa.me/%phone%?text=%message%","messageTemplate":"Hello, my name is [name] [surname]\nI would like to contact you to discuss an important topic for me\nMy email: [email]\nMy additional phone number: [phone]\nAdditional information: [1_field_]"}}
+[00:28:17.094] Browser LOG     [2;38;2;124;124;124m%s[0m {"api":{"url":"https://dca.ua/%botname%?stat=type[1]=CRM&type[2]=user&utm_bot=%botname%&name[1]=%5Bname%5D&name[2]=%5Bsurname%5D&name[3]=%5B1_field_%5D&name[4]=%5B2_field_%5D&name[5]=%5B3_field_%5D&name[6]=%5B4_field_%5D&name[7]=%5Bphone%5D&name[8]=%5Bemail%5D"},"created_at":"2025-12-10T22:43:37.419Z","id":"84dac65d-1d6d-4779-b8b0-ca3fc9926ea2","osnovanie":{"backButtonText":"Backafaffafafa","forwardButtonText":"Next","previewBackText":"You can go back and change the data","thankYouText":"Thank you for your application! We will contact you soon.","useCaptcha":true,"usePhoneVerification":true},"settings":{"api":true,"notifications":true,"osnovanie":true,"step1":true,"step2":true,"whatsapp":true},"step1":{"field1Placeholder":"Enter your name","field2Placeholder":"Enter your phone number","field3Placeholder":"Enter your email","fieldsCount":3},"step2":{"emailPlaceholder":"Email","nameSurnamePlaceholder":"Name & Surname","phonePlaceholder":"Phone number"},"updated_at":"2025-12-11T01:26:24.868Z","whatsapp":{"activateButton":true,"contactNumbers":"+380501234567, +380671234567","linkTemplate":"https://wa.me/%phone%?text=%message%","messageTemplate":"Hello, my name is [name] [surname]\nI would like to contact you to discuss an important topic for me\nMy email: [email]\nMy additional phone number: [phone]\nAdditional information: [1_field_]"}}

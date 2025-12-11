@@ -1,3 +1,9 @@
 {
-  "/booking/page": "app/booking/page.js"
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/generate/page": "app/admin/generate/page.js",
+  "/admin/settings/notifications/page": "app/admin/settings/notifications/page.js",
+  "/admin/settings/osnovanie/page": "app/admin/settings/osnovanie/page.js",
+  "/admin/settings/step1/page": "app/admin/settings/step1/page.js",
+  "/admin/settings/step2/page": "app/admin/settings/step2/page.js",
+  "/admin/settings/whatsapp/page": "app/admin/settings/whatsapp/page.js"
 }

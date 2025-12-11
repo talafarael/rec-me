@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-const PORT = process.env.next_public_be_url || "https://farael-backend.esp.ovh";
+const PORT = process.env.NEXT_PUBLIC_BE_URL || "https://farael-backend.esp.ovh";
 // "http://localhost:9000"
 
 const API_PORT = `${PORT}`;
@@ -18,7 +18,7 @@ export const createApi = () => {
 interface AxiosMutationParams<T> {
   path: string;
   data: T;
-  method?: "post" | "put";
+  method?: "post" | "put" | "patch";
 }
 
 export const AxiosMutation = async <T>({

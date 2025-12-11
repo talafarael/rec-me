@@ -3,12 +3,26 @@ import { ADMIN_PAGE } from "@/entities/admin/constants";
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export const SideBar = () => {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="w-[240px] border-r border-gray-200">
+        <div className="h-full" />
+      </div>
+    );
+  }
 
   return (
-    <List className="w-[240px] border-r border-gray-200">
+    <List className="w-[240px] border-r border-gray-200" suppressHydrationWarning>
       {ADMIN_PAGE.map((page) => {
         const isActive = pathname?.includes(page.path) || false;
         const fullPath = `/admin/${page.path}`;
