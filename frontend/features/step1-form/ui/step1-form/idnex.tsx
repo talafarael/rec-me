@@ -8,9 +8,9 @@ import { CustomButton } from "@/shared/ui/custom-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { step1FormSchema } from "../../schemas/step1-form.schema";
 import { useUpdateStep1 } from "../../hooks/use-update-step1";
-import { CustomErrorText } from "@/shared/ui/custom-error-text";
 import { refreshLeadConfig } from "@/features/lead-config/lib";
 import { useState } from "react";
+import { FormButtons } from "@/shared/ui/form-buttons";
 
 export interface Step1FormProps {
   data?: ILeadformStep1;
@@ -18,7 +18,7 @@ export interface Step1FormProps {
 export const Step1Form = ({ data }: Step1FormProps) => {
   const [success, setSuccess] = useState(false);
   const { handlerUpdateStep1, error, loading } = useUpdateStep1();
-  const { control, handleSubmit } = useForm<ILeadformStep1>({
+  const { control, handleSubmit, reset } = useForm<ILeadformStep1>({
     resolver: zodResolver(step1FormSchema),
     defaultValues: data,
   });
@@ -31,10 +31,12 @@ export const Step1Form = ({ data }: Step1FormProps) => {
       setTimeout(() => setSuccess(false), 3000);
     }
   };
-
+  const handlerCancel = () => {
+    reset(data);
+  };
   return (
     <form
-      className=" mt-[50px] ml-[25px]"
+      className="mt-[50px] ml-[25px] gap-[10px] flex flex-col"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       {step1FormData.map((elem) => (
@@ -61,17 +63,11 @@ export const Step1Form = ({ data }: Step1FormProps) => {
           }}
         </FormInput>
       ))}
-      {error && <CustomErrorText message={error} />}
-      <CustomButton
-        label="save"
-        variant="admin"
-        type="submit"
-        disabled={loading}
-        className={
-          success
-            ? "w-[120px] mt-[15px]  h-[47px] bg-[#22c55e] text-[white] text-[16px]"
-            : "mt-[15px]"
-        }
+      <FormButtons
+        loading={loading}
+        success={success}
+        handlerCancel={handlerCancel}
+        error={error}
       />
     </form>
   );

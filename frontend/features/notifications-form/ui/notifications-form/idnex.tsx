@@ -4,13 +4,12 @@ import { ILeadformNotifications } from "@/entities/token/types/token";
 import { BookingFieldInput } from "@/entities/booking-form/ui/field-input";
 import { CustomInput } from "@/shared/ui/custom-input";
 import { useForm } from "react-hook-form";
-import { CustomButton } from "@/shared/ui/custom-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { notificationsFormSchema } from "../../schemas/notifications-form.schema";
 import { useUpdateNotifications } from "../../hooks/use-update-notifications";
-import { CustomErrorText } from "@/shared/ui/custom-error-text";
 import { refreshLeadConfig } from "@/features/lead-config/lib";
 import { useState } from "react";
+import { FormButtons } from "@/shared/ui/form-buttons";
 
 export interface NotificationsFormProps {
   data?: ILeadformNotifications;
@@ -18,7 +17,7 @@ export interface NotificationsFormProps {
 export const NotificationsForm = ({ data }: NotificationsFormProps) => {
   const [success, setSuccess] = useState(false);
   const { handlerUpdateNotifications, error, loading } = useUpdateNotifications();
-  const { control, handleSubmit } = useForm<ILeadformNotifications>({
+  const { control, handleSubmit, reset } = useForm<ILeadformNotifications>({
     resolver: zodResolver(notificationsFormSchema),
     defaultValues: data,
   });
@@ -31,10 +30,13 @@ export const NotificationsForm = ({ data }: NotificationsFormProps) => {
       setTimeout(() => setSuccess(false), 3000);
     }
   };
+  const handlerCancel = () => {
+    reset(data);
+  };
 
   return (
     <form
-      className="mt-[50px] ml-[25px]"
+      className="mt-[50px] ml-[25px] gap-[10px] flex flex-col"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       {notificationsFormData.map((elem) => (
@@ -61,17 +63,11 @@ export const NotificationsForm = ({ data }: NotificationsFormProps) => {
           }}
         </FormInput>
       ))}
-      {error && <CustomErrorText message={error} />}
-      <CustomButton
-        label="save"
-        variant="admin"
-        type="submit"
-        disabled={loading}
-        className={
-          success
-            ? "w-[120px] mt-[15px] h-[47px] bg-[#22c55e] text-[white] text-[16px]"
-            : "mt-[15px]"
-        }
+      <FormButtons
+        loading={loading}
+        success={success}
+        handlerCancel={handlerCancel}
+        error={error}
       />
     </form>
   );

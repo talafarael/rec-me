@@ -19,11 +19,9 @@ export const GenerateLink = () => {
     setUrl(`${data.baseUrl}/booking?${params.toString()}`);
   };
   return (
-    <div className="w-[100%] flex h-[100%] flex-col justify-center items-center px-[20px]">
-      <div className="w-full max-w-[600px]">
-        <ClipboardGenerateUrl url={url} />
-        <GenerateLinkForm handlerCreateUrl={handlerCreateUrl} />
-      </div>
+    <div className="w-[100%] flex h-[100%] flex-col  items-center ">
+      <ClipboardGenerateUrl url={url} />
+      <GenerateLinkForm handlerCreateUrl={handlerCreateUrl} />
     </div>
   );
 };

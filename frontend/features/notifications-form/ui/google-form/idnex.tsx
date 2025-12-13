@@ -34,7 +34,7 @@ export const GoogleForm = ({ data }: GoogleFormProps) => {
 
   return (
     <form
-      className="mt-[50px] ml-[25px]"
+      className="mt-[50px] ml-[25px] gap-[10px] flex flex-col"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       {googleFormData.map((elem) => (

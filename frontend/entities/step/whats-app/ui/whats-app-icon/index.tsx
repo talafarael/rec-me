@@ -5,7 +5,7 @@ import { PixelEvent } from "@/features/facebook-pixel/enums/events.enum";
 export const WhatsAppIcon = () => {
   const { handlerSendPixel } = useSendPixel();
   const handleClick = () => {
-    handlerSendPixel(PixelEvent.Lead);
+    handlerSendPixel(PixelEvent.Contact);
 
     setTimeout(() => {
       window.location.href = "https://www.whatsapp.com/?lang=en";

@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-main antialiased  m-[0px] h-[100vh] `}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased  m-[0px] h-[100vh] `}
       >
         <Script
           src="https://22901a9fe14d.us-east-1.captcha-sdk.awswaf.com/22901a9fe14d/jsapi.js"

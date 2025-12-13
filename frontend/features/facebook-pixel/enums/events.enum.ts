@@ -4,4 +4,5 @@ export enum PixelEvent {
   ViewContent = "ViewContent",
   InitiateCheckout = "InitiateCheckout",
   Lead = "Lead",
+  Contact = "Contact",
 }

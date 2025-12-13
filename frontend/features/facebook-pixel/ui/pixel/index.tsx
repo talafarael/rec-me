@@ -23,6 +23,10 @@ export const PixelTracker = () => {
       case 3:
         event = PixelEvent.InitiateCheckout;
         break;
+      case 4:
+        event = PixelEvent.Lead;
+        break;
+
       default:
         return;
     }

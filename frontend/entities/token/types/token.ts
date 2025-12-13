@@ -3,4 +3,7 @@ export interface ILeadformNotifications {
   telegramChatId?: string;
   googleToken?: string;
   googleSheetUrl?: string;
+  sendpulseSecret?: string;
+  sendpulseClientId?: string;
+  sendpulseAddressBookId?: string;
 }

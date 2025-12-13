@@ -6,9 +6,8 @@ export const updateNotifications = (
   data: UpdateNotificationsDto,
 ): Promise<AxiosResponse> => {
   return AxiosMutation<UpdateNotificationsDto>({
-    path: "leadform-config/notifications",
+    path: "token",
     data,
     method: "patch",
   });
 };
-

@@ -22,5 +22,20 @@ export const notificationsFormData: IInputForm<ILeadformNotifications>[] = [
     field: "Ссылка на google таблицу",
     type: "default",
   },
+  {
+    name: "sendpulseSecret",
+    field: "SendPulse Secret",
+    type: "default",
+  },
+  {
+    name: "sendpulseClientId",
+    field: "SendPulse Client ID",
+    type: "default",
+  },
+  {
+    name: "sendpulseAddressBookId",
+    field: "SendPulse Address Book ID",
+    type: "default",
+  },
 ];
 

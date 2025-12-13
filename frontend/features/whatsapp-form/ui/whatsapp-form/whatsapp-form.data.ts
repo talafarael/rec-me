@@ -1,26 +1,24 @@
 import { ILeadformWhatsapp } from "@/entities/whatsapp/types/whatsapp";
-import { IInputForm } from "@/shared/types/input-form";
+import { IInputFormText } from "@/shared/types/input-form";
 
-export const whatsappFormData: IInputForm<ILeadformWhatsapp>[] = [
+export const whatsappFormData: IInputFormText<ILeadformWhatsapp>[] = [
   {
     name: "activateButton",
-    field: "Активировать кнопку",
+    field: "Активировать кнопку Whats App",
     type: "checkbox",
   },
   {
     name: "messageTemplate",
     field: "Шаблон сообщения",
-    type: "default",
+    type: "textarea",
   },
   {
     name: "linkTemplate",
-    field: "Шаблон ссылки",
-    type: "default",
+    type: "textBlock",
   },
   {
     name: "contactNumbers",
-    field: "Номера контактов",
+    field: "Номера WhatsApp",
     type: "default",
   },
 ];
-

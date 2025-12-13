@@ -10,6 +10,10 @@ export const ADMIN_PAGE: IAdminPage[] = [
     name: "Dashboard",
   },
   {
+   path: "settings/settings",
+    name: "Настройки",
+  },
+  {
     path: "settings/osnovanie",
     name: "Основные",
   },

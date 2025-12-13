@@ -5,5 +5,8 @@ export const notificationsFormSchema = z.object({
   telegramChatId: z.string().optional(),
   googleToken: z.string().optional(),
   googleSheetUrl: z.string().optional(),
+  sendpulseSecret: z.string().optional(),
+  sendpulseClientId: z.string().optional(),
+  sendpulseAddressBookId: z.string().optional(),
 });
 

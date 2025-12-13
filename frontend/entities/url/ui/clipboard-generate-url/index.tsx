@@ -23,7 +23,7 @@ export const ClipboardGenerateUrl = ({ url }: ClipboardGenerateUrlProps) => {
   if (!url) return null;
 
   return (
-    <div className="w-[100%] flex flex-col gap-[16px] justify-center items-center mb-[32px] animate-fadeIn">
+    <div className="w-[100%] flex flex-col gap-[16px]  items-center mb-[32px] animate-fadeIn">
       <div className="w-full max-w-[600px]">
         <label className="block text-sm font-medium text-gray-300 mb-[8px] ml-[4px]">
           Generated URL

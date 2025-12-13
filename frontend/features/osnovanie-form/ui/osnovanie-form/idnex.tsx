@@ -5,13 +5,12 @@ import { BookingFieldInput } from "@/entities/booking-form/ui/field-input";
 import { CustomInput } from "@/shared/ui/custom-input";
 import { CustomCheckbox } from "@/shared/ui/custom-checkbox";
 import { useForm } from "react-hook-form";
-import { CustomButton } from "@/shared/ui/custom-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { osnovanieFormSchema } from "../../schemas/osnovanie-form.schema";
 import { useUpdateOsnovanie } from "../../hooks/use-update-osnovanie";
-import { CustomErrorText } from "@/shared/ui/custom-error-text";
 import { refreshLeadConfig } from "@/features/lead-config/lib";
 import { useState } from "react";
+import { FormButtons } from "@/shared/ui/form-buttons";
 
 export interface OsnovanieFormProps {
   data?: ILeadformOsnovanie;
@@ -19,7 +18,7 @@ export interface OsnovanieFormProps {
 export const OsnovanieForm = ({ data }: OsnovanieFormProps) => {
   const [success, setSuccess] = useState(false);
   const { handlerUpdateOsnovanie, error, loading } = useUpdateOsnovanie();
-  const { control, handleSubmit } = useForm<ILeadformOsnovanie>({
+  const { control, handleSubmit, reset } = useForm<ILeadformOsnovanie>({
     resolver: zodResolver(osnovanieFormSchema),
     defaultValues: data,
   });
@@ -34,10 +33,13 @@ export const OsnovanieForm = ({ data }: OsnovanieFormProps) => {
       setTimeout(() => setSuccess(false), 3000);
     }
   };
+  const handlerCancel = () => {
+    reset(data);
+  };
 
   return (
     <form
-      className=" mt-[55px] ml-[25px]"
+      className="mt-[55px] ml-[25px] gap-[10px] flex flex-col"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       {onovanieFormData.map((elem) => (
@@ -76,17 +78,11 @@ export const OsnovanieForm = ({ data }: OsnovanieFormProps) => {
           }}
         </FormInput>
       ))}
-      {error && <CustomErrorText message={error} />}
-      <CustomButton
-        label="save"
-        variant="admin"
-        type="submit"
-        disabled={loading}
-        className={
-          success
-            ? "w-[120px] mt-[15px]  h-[47px] bg-[#22c55e] text-[white] text-[16px]"
-            : "mt-[15px]"
-        }
+      <FormButtons
+        loading={loading}
+        success={success}
+        handlerCancel={handlerCancel}
+        error={error}
       />
     </form>
   );
