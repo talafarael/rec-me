@@ -18,7 +18,7 @@ const inputVariants: Record<
   admin: {
     div: "w-[352px] pl-[10px] h-[57px] rounded-[15px]",
     title: "text-[16px]  w-[352px] text-[black]",
-    error: "text-[14px]  text-[white]",
+    error: "text-[14px]  text-[black]",
   },
 };
 

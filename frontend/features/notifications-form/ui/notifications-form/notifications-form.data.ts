@@ -1,7 +1,10 @@
 import { ILeadformNotifications } from "@/entities/token/types/token";
-import { IInputForm } from "@/shared/types/input-form";
+import { IInputFormText } from "@/shared/types/input-form";
+import { TestMessageButton } from "@/features/send-test-message/ui";
+import { MessageService } from "@/features/send-test-message/enums/message-service.enum";
+import React from "react";
 
-export const notificationsFormData: IInputForm<ILeadformNotifications>[] = [
+export const notificationsFormData: IInputFormText<ILeadformNotifications>[] = [
   {
     name: "telegramBotToken",
     field: "Token бота telegram",
@@ -13,6 +16,18 @@ export const notificationsFormData: IInputForm<ILeadformNotifications>[] = [
     type: "default",
   },
   {
+    name: "telegram-test",
+    type: "textBlock",
+    field: (
+      data: ILeadformNotifications,
+      onSave?: () => Promise<void>,
+    ) =>
+      React.createElement(TestMessageButton, {
+        data,
+        service: MessageService.Telegram,
+      }),
+  },
+  {
     name: "googleToken",
     field: "Google Token",
     type: "default",
@@ -21,6 +36,15 @@ export const notificationsFormData: IInputForm<ILeadformNotifications>[] = [
     name: "googleSheetUrl",
     field: "Ссылка на google таблицу",
     type: "default",
+  },
+  {
+    name: "google-test",
+    type: "textBlock",
+    field: (data: ILeadformNotifications) =>
+      React.createElement(TestMessageButton, {
+        data,
+        service: MessageService.GoogleSheet,
+      }),
   },
   {
     name: "sendpulseSecret",
@@ -37,5 +61,13 @@ export const notificationsFormData: IInputForm<ILeadformNotifications>[] = [
     field: "SendPulse Address Book ID",
     type: "default",
   },
+  {
+    name: "sendpulse-test",
+    type: "textBlock",
+    field: (data: ILeadformNotifications) =>
+      React.createElement(TestMessageButton, {
+        data,
+        service: MessageService.SendPulse,
+      }),
+  },
 ];
-

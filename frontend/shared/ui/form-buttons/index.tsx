@@ -4,7 +4,7 @@ import { CustomErrorText } from "../custom-error-text";
 export interface FormButtonsProps {
   loading?: boolean;
   success: boolean;
-  handlerCancel?: () => void;
+  handlerCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   error?: string;
 }
 export const FormButtons = ({
@@ -15,7 +15,12 @@ export const FormButtons = ({
 }: FormButtonsProps) => {
   return (
     <div className="flex justify-between w-[580px] mt-[15px] mb-[20px]">
-      <div>{error && <CustomErrorText message={error} />}</div>
+      <div>
+        {error && <CustomErrorText message={error} />}
+        {success && !error && (
+          <p className="text-[#22c55e] text-sm mt-1 ml-1">Данные сохранены</p>
+        )}
+      </div>
       <div className=" flex gap-[10px] ">
         {handlerCancel && (
           <CustomButton

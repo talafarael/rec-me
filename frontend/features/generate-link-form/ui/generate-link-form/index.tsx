@@ -85,7 +85,9 @@ export const GenerateLinkForm = ({
       setLoading(false);
     }
   };
-  const handlerCancel = () => {
+  const handlerCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     reset({
       baseUrl:
         process.env.NEXT_PUBLIC_BASE_URL || "https://farael-frontend.esp.ovh",

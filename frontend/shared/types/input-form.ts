@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { FieldValues, Path } from "react-hook-form";
 
 export type InputsType =
@@ -21,4 +22,5 @@ export type IInputFormText<T extends FieldValues> =
   | {
       name: string;
       type: "textBlock";
+      field: ReactNode | ((data: T) => ReactNode);
     };

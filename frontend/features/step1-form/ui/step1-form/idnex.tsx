@@ -1,5 +1,4 @@
 import { FormInput } from "@/shared/ui/form-input";
-import { step1FormData } from "./step1-form.data";
 import { ILeadformStep1 } from "@/entities/step1/types/step1";
 import { BookingFieldInput } from "@/entities/booking-form/ui/field-input";
 import { CustomInput } from "@/shared/ui/custom-input";
@@ -11,6 +10,7 @@ import { useUpdateStep1 } from "../../hooks/use-update-step1";
 import { refreshLeadConfig } from "@/features/lead-config/lib";
 import { useState } from "react";
 import { FormButtons } from "@/shared/ui/form-buttons";
+import { useStep1DataForm } from "../../hooks/use-data-form";
 
 export interface Step1FormProps {
   data?: ILeadformStep1;
@@ -18,10 +18,27 @@ export interface Step1FormProps {
 export const Step1Form = ({ data }: Step1FormProps) => {
   const [success, setSuccess] = useState(false);
   const { handlerUpdateStep1, error, loading } = useUpdateStep1();
-  const { control, handleSubmit, reset } = useForm<ILeadformStep1>({
-    resolver: zodResolver(step1FormSchema),
-    defaultValues: data,
+
+  const { control, handleSubmit, reset, setValue, getValues } =
+    useForm<ILeadformStep1>({
+      resolver: zodResolver(step1FormSchema),
+      defaultValues: {
+        ...data,
+      },
+    });
+
+  const {
+    step1FormData,
+    handleIncreaseFields,
+    handleDecreaseFields,
+    fieldsCount,
+    MAX_FIELDS,
+  } = useStep1DataForm({
+    control,
+    getValues,
+    setValue,
   });
+
   const handleFormSubmit = async (formData: ILeadformStep1) => {
     setSuccess(false);
     const result = await handlerUpdateStep1(formData);
@@ -31,14 +48,36 @@ export const Step1Form = ({ data }: Step1FormProps) => {
       setTimeout(() => setSuccess(false), 3000);
     }
   };
-  const handlerCancel = () => {
+
+  const handlerCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     reset(data);
   };
+
   return (
     <form
       className="mt-[50px] ml-[25px] gap-[10px] flex flex-col"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
+      <div className="flex items-center gap-2 mb-[10px]">
+        <CustomButton
+          label="-"
+          variant="admin"
+          type="button"
+          onClick={handleDecreaseFields}
+          disabled={fieldsCount <= 0}
+          className="w-[47px] h-[47px]"
+        />
+        <CustomButton
+          label="+"
+          variant="admin"
+          type="button"
+          onClick={handleIncreaseFields}
+          disabled={fieldsCount >= MAX_FIELDS}
+          className="w-[47px] h-[47px]"
+        />
+      </div>
       {step1FormData.map((elem) => (
         <FormInput<ILeadformStep1>
           key={elem.name}

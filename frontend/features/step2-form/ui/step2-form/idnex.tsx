@@ -30,7 +30,9 @@ export const Step2Form = ({ data }: Step2FormProps) => {
       setTimeout(() => setSuccess(false), 3000);
     }
   };
-  const handlerCancel = () => {
+  const handlerCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     reset(data);
   };
 

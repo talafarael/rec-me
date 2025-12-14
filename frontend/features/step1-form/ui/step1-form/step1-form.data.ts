@@ -23,4 +23,3 @@ export const step1FormData: IInputForm<ILeadformStep1>[] = [
     type: "default",
   },
 ];
-

@@ -83,7 +83,9 @@ export const WhatsappForm = ({ data }: WhatsappFormProps) => {
       setTimeout(() => setSuccess(false), 3000);
     }
   };
-  const handlerCancel = () => {
+  const handlerCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     reset(data);
   };
 

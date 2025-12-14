@@ -26,14 +26,16 @@ export const OsnovanieForm = ({ data }: OsnovanieFormProps) => {
     setSuccess(false);
     const result = await handlerUpdateOsnovanie(formData);
     if (result) {
-      // Обновляем конфиг из API и сохраняем в store
+    
       await refreshLeadConfig();
       setSuccess(true);
-      // Сбрасываем успех через 3 секунды
+      
       setTimeout(() => setSuccess(false), 3000);
     }
   };
-  const handlerCancel = () => {
+  const handlerCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     reset(data);
   };
 
