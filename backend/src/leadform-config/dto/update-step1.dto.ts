@@ -2,7 +2,7 @@ import { IsNumber, IsString, IsOptional, Min, Max } from 'class-validator';
 
 export class UpdateStep1Dto {
   @IsNumber()
-  @Min(1)
+  @Min(0)
   @Max(3)
   @IsOptional()
   fieldsCount?: number;
@@ -19,4 +19,3 @@ export class UpdateStep1Dto {
   @IsOptional()
   field3Placeholder?: string;
 }
-

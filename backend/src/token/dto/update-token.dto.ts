@@ -16,5 +16,17 @@ export class UpdateTokenDto {
   @IsString()
   @IsOptional()
   googleSheetUrl?: string;
+
+  @IsString()
+  @IsOptional()
+  sendpulseSecret?: string;
+
+  @IsString()
+  @IsOptional()
+  sendpulseClientId?: string;
+
+  @IsString()
+  @IsOptional()
+  sendpulseAddressBookId?: string;
 }
 

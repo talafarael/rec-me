@@ -4,29 +4,24 @@ import { firstValueFrom } from 'rxjs';
 import { IAuthSendpluse } from './types/auth';
 import { AxiosResponse } from 'axios';
 import { SendpulseSendLeadDto } from './dto/send-lead.dto';
-import { ConfigService } from '@nestjs/config';
+import { TokenService } from '../token/token.service';
 
 @Injectable()
 export class SendpluseService {
-  private readonly secret: string;
-  private readonly clientId: string;
-  private readonly addressBookId: string;
-
   constructor(
-    private readonly configService: ConfigService,
     private readonly httpService: HttpService,
-  ) {
-    this.secret = this.configService.get<string>('sendpulse.secret')!;
-    this.clientId = this.configService.get<string>('sendpulse.clientId')!;
-    this.addressBookId = this.configService.get<string>(
-      'sendpulse.addressBookId',
-    )!;
-  }
+    private readonly tokenService: TokenService,
+  ) {}
 
   async sendLead(data: SendpulseSendLeadDto) {
     try {
       const token = await this.authApi();
-      return this.sendLeadApi(token, data);
+      const notifications = await this.tokenService.getNotifications();
+      const addressBookId = notifications.sendpulseAddressBookId;
+      if (!addressBookId) {
+        throw new Error('Sendpulse address book ID is not configured');
+      }
+      return this.sendLeadApi(token, data, addressBookId);
     } catch (e) {
       const message = e?.response?.data
         ? JSON.stringify(e.response.data)
@@ -38,7 +33,12 @@ export class SendpluseService {
   async getMailingList(id?: number) {
     try {
       const token = await this.authApi();
-      const addressBookId = id || Number(this.addressBookId);
+      const notifications = await this.tokenService.getNotifications();
+      const addressBookId =
+        id || Number(notifications.sendpulseAddressBookId);
+      if (!addressBookId) {
+        throw new Error('Sendpulse address book ID is not configured');
+      }
       return this.getMailingListApi(token, addressBookId);
     } catch (e) {
       const message = e?.response?.data
@@ -47,7 +47,11 @@ export class SendpluseService {
       throw new HttpException(message, HttpStatus.BAD_REQUEST);
     }
   }
-  private async sendLeadApi(token: string, data: SendpulseSendLeadDto) {
+  private async sendLeadApi(
+    token: string,
+    data: SendpulseSendLeadDto,
+    addressBookId: string,
+  ) {
     const allowedVars = [
       'name',
       'sub1',
@@ -86,7 +90,7 @@ export class SendpluseService {
     try {
       const resp: AxiosResponse = await firstValueFrom(
         this.httpService.post(
-          `https://api.sendpulse.com/addressbooks/${this.addressBookId}/emails`,
+          `https://api.sendpulse.com/addressbooks/${addressBookId}/emails`,
           payload,
           {
             headers: {
@@ -124,20 +128,50 @@ export class SendpluseService {
     }
   }
 
+  async testSendpulse(
+    secret: string,
+    clientId: string,
+    addressBookId: string,
+  ) {
+    try {
+      const token = await this.authApiWithCredentials(secret, clientId);
+      return this.getMailingListApi(token, Number(addressBookId));
+    } catch (e) {
+      const message = e?.response?.data
+        ? JSON.stringify(e.response.data)
+        : e.message;
+      throw new HttpException(message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   private async authApi(): Promise<string> {
-    console.log(this.clientId);
+    const notifications = await this.tokenService.getNotifications();
+    
+    if (!notifications.sendpulseClientId || !notifications.sendpulseSecret) {
+      throw new Error('Sendpulse client ID or secret is not configured');
+    }
+
+    return this.authApiWithCredentials(
+      notifications.sendpulseSecret,
+      notifications.sendpulseClientId,
+    );
+  }
+
+  private async authApiWithCredentials(
+    secret: string,
+    clientId: string,
+  ): Promise<string> {
     const resp: AxiosResponse<IAuthSendpluse> = await firstValueFrom(
       this.httpService.post(
         'https://api.sendpulse.com/oauth/access_token',
         {
           grant_type: 'client_credentials',
-          client_id: this.clientId,
-          client_secret: this.secret,
+          client_id: clientId,
+          client_secret: secret,
         },
         {
           headers: {
             'Content-Type': 'application/json',
-            // Authorization: `Bearer ${token}`,
           },
         },
       ),

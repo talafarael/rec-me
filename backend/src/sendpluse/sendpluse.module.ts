@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { SendpluseService } from './sendpluse.service';
 import { SendpluseController } from './sendpluse.controller';
 import { HttpModule } from '@nestjs/axios';
-import { ConfigModule } from '@nestjs/config';
+import { TokenModule } from '../token/token.module';
 
 @Module({
-  imports: [HttpModule, ConfigModule],
+  imports: [HttpModule, TokenModule],
   controllers: [SendpluseController],
   providers: [SendpluseService],
   exports: [SendpluseService],

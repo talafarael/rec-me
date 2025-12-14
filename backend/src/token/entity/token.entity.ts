@@ -11,6 +11,9 @@ export interface ILeadformNotifications {
   telegramChatId?: string;
   googleToken?: string;
   googleSheetUrl?: string;
+  sendpulseSecret?: string;
+  sendpulseClientId?: string;
+  sendpulseAddressBookId?: string;
 }
 
 @Entity('tokens')
@@ -30,10 +33,18 @@ export class Token {
   @Column({ type: 'text', nullable: true })
   googleSheetUrl: string | null;
 
+  @Column({ type: 'text', nullable: true })
+  encryptedSendpulseSecret: string | null;
+
+  @Column({ type: 'text', nullable: true })
+  encryptedSendpulseClientId: string | null;
+
+  @Column({ type: 'text', nullable: true })
+  sendpulseAddressBookId: string | null;
+
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
 }
-

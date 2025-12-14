@@ -1,29 +1,43 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { AxiosResponse } from 'axios';
 import { firstValueFrom } from 'rxjs';
 import { ILead } from 'src/lead/model/lead';
+import { TokenService } from '../token/token.service';
 
 @Injectable()
 export class TelegramService {
-  private readonly token: string;
-  private readonly chatId: string;
-
   constructor(
-    private readonly configService: ConfigService,
     private readonly httpService: HttpService,
-  ) {
-    this.token = this.configService.get<string>('telegram.token')!;
-    this.chatId = this.configService.get<string>('telegram.chatId')!;
-  }
+    private readonly tokenService: TokenService,
+  ) {}
+
   async sendLead(lead: ILead) {
+    const notifications = await this.tokenService.getNotifications();
+
+    if (!notifications.telegramBotToken || !notifications.telegramChatId) {
+      throw new Error('Telegram token or chat ID is not configured');
+    }
+
     const resp: AxiosResponse = await firstValueFrom(
       this.httpService.post(
-        `https://api.telegram.org/bot${this.token}/sendMessage`,
+        `https://api.telegram.org/bot${notifications.telegramBotToken}/sendMessage`,
         {
-          chat_id: this.chatId,
+          chat_id: notifications.telegramChatId,
           text: JSON.stringify(lead, null, 2),
+        },
+      ),
+    );
+    return resp.data;
+  }
+
+  async sendTestMessage(token: string, chatId: string) {
+    const resp: AxiosResponse = await firstValueFrom(
+      this.httpService.post(
+        `https://api.telegram.org/bot${token}/sendMessage`,
+        {
+          chat_id: chatId,
+          text: 'Test message from API',
         },
       ),
     );

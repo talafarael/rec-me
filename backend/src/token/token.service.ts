@@ -126,6 +126,29 @@ export class TokenService implements OnModuleInit {
 
     notifications.googleSheetUrl = token.googleSheetUrl || undefined;
 
+    if (token.encryptedSendpulseSecret) {
+      try {
+        notifications.sendpulseSecret = await this.decrypt(
+          token.encryptedSendpulseSecret,
+        );
+      } catch (error) {
+        console.error('Failed to decrypt sendpulse secret:', error);
+      }
+    }
+
+    if (token.encryptedSendpulseClientId) {
+      try {
+        notifications.sendpulseClientId = await this.decrypt(
+          token.encryptedSendpulseClientId,
+        );
+      } catch (error) {
+        console.error('Failed to decrypt sendpulse client id:', error);
+      }
+    }
+
+    notifications.sendpulseAddressBookId =
+      token.sendpulseAddressBookId || undefined;
+
     return notifications;
   }
 
@@ -152,6 +175,22 @@ export class TokenService implements OnModuleInit {
 
     if (dto.googleSheetUrl !== undefined) {
       token.googleSheetUrl = dto.googleSheetUrl || null;
+    }
+
+    if (dto.sendpulseSecret !== undefined) {
+      token.encryptedSendpulseSecret = dto.sendpulseSecret
+        ? await this.encrypt(dto.sendpulseSecret)
+        : null;
+    }
+
+    if (dto.sendpulseClientId !== undefined) {
+      token.encryptedSendpulseClientId = dto.sendpulseClientId
+        ? await this.encrypt(dto.sendpulseClientId)
+        : null;
+    }
+
+    if (dto.sendpulseAddressBookId !== undefined) {
+      token.sendpulseAddressBookId = dto.sendpulseAddressBookId || null;
     }
 
     return await this.repository.save(token);
