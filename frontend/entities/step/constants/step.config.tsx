@@ -42,7 +42,7 @@ export const STEPS: FormStepConfig[] = [
   {
     key: FormStep.FINAL,
     enabledBy: "step2",
-    render: () => <FinallyStep />,
+    render: (control: any) => <FinallyStep control={control} />,
     showButton: false,
   },
 ];

@@ -5,6 +5,5 @@ import { WhatsappForm } from "@/features/whatsapp-form/ui/whatsapp-form/idnex";
 export const WhatsappPage = () => {
   const { config } = useLeadFormStore();
   if (!config) return "loading";
-  return <WhatsappForm data={config.whatsapp} />;
+  return <WhatsappForm data={config?.whatsapp ?? undefined} />;
 };
-

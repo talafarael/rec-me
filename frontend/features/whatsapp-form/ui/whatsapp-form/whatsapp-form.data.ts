@@ -15,6 +15,7 @@ export const whatsappFormData: IInputFormText<ILeadformWhatsapp>[] = [
   {
     name: "linkTemplate",
     type: "textBlock",
+    field: null,
   },
   {
     name: "contactNumbers",

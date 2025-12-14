@@ -47,7 +47,6 @@ export const WhatsappForm = ({ data }: WhatsappFormProps) => {
       if (messageTemplate) {
         const encodedMessage = encodeURIComponent(messageTemplate);
 
-        // Поддержка различных форматов плейсхолдеров для сообщения
         link = link.replace(/%message%/g, encodedMessage);
         link = link.replace(/%Message%/g, encodedMessage);
         link = link.replace(/%MESSAGE%/g, encodedMessage);
@@ -76,7 +75,10 @@ export const WhatsappForm = ({ data }: WhatsappFormProps) => {
 
   const handleFormSubmit = async (formData: ILeadformWhatsapp) => {
     setSuccess(false);
-    const result = await handlerUpdateWhatsapp(formData);
+    const result = await handlerUpdateWhatsapp({
+      ...formData,
+      linkTemplate: generatedLink,
+    });
     if (result) {
       await refreshLeadConfig();
       setSuccess(true);

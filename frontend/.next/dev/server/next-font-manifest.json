@@ -1,41 +1,16 @@
 {
   "app": {
-    "[project]/rec-me/frontend/app/admin/dashboard/page": [
-      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
-    "[project]/rec-me/frontend/app/admin/generate/page": [
-      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
-    "[project]/rec-me/frontend/app/admin/settings/osnovanie/page": [
-      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
     "[project]/rec-me/frontend/app/admin/settings/settings/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
     ],
-    "[project]/rec-me/frontend/app/admin/settings/step1/page": [
-      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
-    "[project]/rec-me/frontend/app/admin/settings/step2/page": [
+    "[project]/rec-me/frontend/app/admin/settings/whatsapp/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
     ],
     "[project]/rec-me/frontend/app/booking/page": [
-      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/ce62453a442c7f35-s.p.a9507876.woff2"
-    ],
-    "[project]/rec-me/frontend/app/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/ce62453a442c7f35-s.p.a9507876.woff2"

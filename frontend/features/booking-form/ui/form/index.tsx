@@ -14,6 +14,7 @@ import { useRef } from "react";
 import { CustomErrorText } from "@/shared/ui/custom-error-text";
 import { FormStep } from "@/entities/step/enums/step.enum";
 import { useLeadFormStore } from "@/entities/lead-form/store";
+import { createStep1Schema } from "../../schemas/step1.schema";
 
 export const FormBooking = () => {
   const { currentStep, nextStep, step, steps } = useStep();
@@ -26,7 +27,7 @@ export const FormBooking = () => {
 
   const { control, getValues, setError, clearErrors, handleSubmit } =
     useForm<BookingForm>({
-      resolver: zodResolver(createBookingSchema(config?.settings ?? null)),
+      resolver: zodResolver(createBookingSchema(config)),
       defaultValues: {},
     });
   const handlerContactPageNext = () => {
@@ -36,6 +37,9 @@ export const FormBooking = () => {
     let result;
     switch (currentStep) {
       case FormStep.STEP1:
+        // Validate step1 fields based on config
+        const step1Schema = createStep1Schema(config?.step1 ?? null);
+        result = step1Schema.safeParse(values);
         break;
       case FormStep.CONTACTS:
         result = contactSchema.safeParse(values);
