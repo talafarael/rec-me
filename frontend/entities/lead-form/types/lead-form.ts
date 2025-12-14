@@ -21,6 +21,7 @@ export interface ILeadformSettings {
   osnovanie?: boolean;
   step1?: boolean;
   step2?: boolean;
+  captcha?: boolean;
   notifications?: boolean;
   whatsapp?: boolean;
   api?: boolean;

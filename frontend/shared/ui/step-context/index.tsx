@@ -1,4 +1,6 @@
 "use client";
+import { FormStepConfig } from "@/entities/step/constants/step.config";
+import { FormStep } from "@/entities/step/enums/step.enum";
 import {
   createContext,
   ReactNode,
@@ -9,6 +11,8 @@ import {
 
 export interface StepContext {
   step: number;
+  currentStep: FormStep;
+  steps: FormStepConfig[];
   nextStep: () => void;
   backStep: () => void;
 }
@@ -25,27 +29,45 @@ export const useStep = () => {
 
 export interface StepProviderProps {
   children: ReactNode;
-  initialStep: number;
-  maxStep: number;
+  steps: FormStepConfig[];
+  initialStep?: FormStep;
 }
 export const StepProvider = ({
   children,
-  initialStep = 0,
-  maxStep,
+  steps,
+  initialStep,
 }: StepProviderProps) => {
-  const [step, setStep] = useState<number>(initialStep);
+  const getInitialStepIndex = () => {
+    if (!initialStep) return 0;
+    const index = steps.findIndex((step) => step.key === initialStep);
+    return index >= 0 ? index : 0;
+  };
+
+  const [stepIndex, setStepIndex] = useState<number>(getInitialStepIndex);
+  const maxStep = steps.length - 1;
+
+  const currentStep = steps[stepIndex]?.key || steps[0]?.key || FormStep.STEP1;
 
   const nextStep = useCallback(
-    () => setStep((prev) => Math.min(prev + 1, maxStep)),
+    () => setStepIndex((prev) => Math.min(prev + 1, maxStep)),
     [maxStep],
   );
 
   const backStep = useCallback(
-    () => setStep((prev) => Math.max(prev - 1, 0)),
+    () => setStepIndex((prev) => Math.max(prev - 1, 0)),
     [],
   );
+
   return (
-    <stepContext.Provider value={{ step, nextStep, backStep }}>
+    <stepContext.Provider
+      value={{
+        step: stepIndex + 1,
+        currentStep,
+        steps,
+        nextStep,
+        backStep,
+      }}
+    >
       {children}
     </stepContext.Provider>
   );

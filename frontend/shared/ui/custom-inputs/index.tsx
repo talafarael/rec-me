@@ -5,14 +5,17 @@ import { CustomCheckbox } from "../custom-checkbox";
 import { BookingFieldInput } from "@/entities/booking-form/ui/field-input";
 import { CustomTextarea } from "../custom-textarea";
 import { CustomInput } from "../custom-input";
+import { CustomPhoneInput } from "../custom-phone-input";
 
 export interface CustomInputsProps<T extends FieldValues> {
   data: (IInputForm<T> | IInputFormText<T>)[];
   control: Control<T>;
+  type?: "admin" | "default";
 }
 export const CustomInputs = <T extends FieldValues>({
   data,
   control,
+  type = "admin",
 }: CustomInputsProps<T>) => {
   const formValues = useWatch({ control }) as T;
 
@@ -26,7 +29,17 @@ export const CustomInputs = <T extends FieldValues>({
               : elem.field;
           return <div key={elem.name}>{fieldContent}</div>;
         }
-
+        if (elem.type == "phone") {
+          return (
+            <FormInput<T> key={elem.name} data={elem} control={control}>
+              {(field, fieldErrors) => (
+                <BookingFieldInput title={elem.field} fieldErrors={fieldErrors}>
+                  <CustomPhoneInput {...field} />
+                </BookingFieldInput>
+              )}
+            </FormInput>
+          );
+        }
         if (elem.type === "checkbox") {
           return (
             <FormInput<T> key={elem.name} data={elem} control={control}>
@@ -55,19 +68,19 @@ export const CustomInputs = <T extends FieldValues>({
               const { value, ...restField } = field;
               return (
                 <BookingFieldInput
-                  variant="admin"
+                  variant={type}
                   title={elem.field}
                   fieldErrors={fieldErrors}
                 >
                   {elem.type === "textarea" ? (
                     <CustomTextarea
-                      variant="admin"
+                      variant={type}
                       {...restField}
                       value={value as string}
                     />
                   ) : (
                     <CustomInput
-                      variant="admin"
+                      variant={type}
                       {...restField}
                       value={value as string}
                     />

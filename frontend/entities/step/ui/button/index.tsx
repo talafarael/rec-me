@@ -2,9 +2,14 @@ import { buttonData } from "./button.data";
 
 export interface StepButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: "next" | "back" | "submit";
+  customTitle?: string;
 }
 
-export const StepButton = ({ variant, ...props }: StepButtonProps) => {
+export const StepButton = ({
+  variant,
+  customTitle,
+  ...props
+}: StepButtonProps) => {
   const { title, bgColor, colorText, bgBorder } = buttonData[variant];
 
   return (
@@ -17,7 +22,7 @@ export const StepButton = ({ variant, ...props }: StepButtonProps) => {
         borderColor: bgBorder,
       }}
     >
-      {title}
+      {customTitle ?? title}
     </button>
   );
 };

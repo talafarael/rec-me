@@ -22,14 +22,4 @@ export const onovanieFormData: IInputForm<ILeadformOsnovanie>[] = [
     field: "Введите текст на странице спасибо",
     type: "default",
   },
-  {
-    name: "useCaptcha",
-    field: "Использовать капчу",
-    type: "checkbox",
-  },
-  {
-    name: "usePhoneVerification",
-    field: "Использовать верификацию по номеру телефона",
-    type: "checkbox",
-  },
 ];

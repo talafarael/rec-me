@@ -7,6 +7,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { CustomThemeProvider } from "@/shared/ui/custom-theme-provider";
 import Script from "next/script";
+import { GetLeadConfig } from "@/features/lead-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
           src="https://22901a9fe14d.us-east-1.captcha-sdk.awswaf.com/22901a9fe14d/jsapi.js"
           strategy="afterInteractive"
         />
+        <GetLeadConfig />
         <CustomThemeProvider>{children}</CustomThemeProvider>
       </body>
     </html>

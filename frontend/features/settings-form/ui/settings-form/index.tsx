@@ -23,10 +23,8 @@ export const SettingsForm = ({ data }: SettingsFormProps) => {
     setSuccess(false);
     const result = await handlerUpdateSettings(formData);
     if (result) {
-      // Обновляем конфиг из API и сохраняем в store
       await refreshLeadConfig();
       setSuccess(true);
-      // Сбрасываем успех через 3 секунды
       setTimeout(() => setSuccess(false), 3000);
     }
   };
@@ -51,4 +49,3 @@ export const SettingsForm = ({ data }: SettingsFormProps) => {
     </form>
   );
 };
-

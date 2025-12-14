@@ -3,20 +3,12 @@ import { IInputForm } from "@/shared/types/input-form";
 
 export const settingsFormData: IInputForm<ILeadformSettings>[] = [
   {
-    name: "osnovanie",
-    field: "Основание",
-    type: "checkbox",
-  },
-  {
     name: "step1",
     field: "Шаг 1",
     type: "checkbox",
   },
-  {
-    name: "step2",
-    field: "Шаг 2",
-    type: "checkbox",
-  },
+
+  { name: "captcha", field: "Каптча", type: "checkbox" },
   {
     name: "notifications",
     field: "Уведомления",
@@ -33,4 +25,3 @@ export const settingsFormData: IInputForm<ILeadformSettings>[] = [
     type: "checkbox",
   },
 ];
-

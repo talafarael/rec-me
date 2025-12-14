@@ -1,38 +1,32 @@
 import { useStep } from "@/shared/ui/step-context";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { BookingForm, bookingSchema } from "../../schemas";
+import { BookingForm, createBookingSchema } from "../../schemas";
 import { contactSchema } from "../../schemas/contact.schema";
+import { captchaSchema } from "../../schemas/captcha.schema";
 import { StepButton, StepButtonBar } from "@/entities/step";
 import { BookingSteper } from "@/widgets/booking-steper";
 import { verifyCodeSchema } from "../../schemas/verify-code.schema";
 import { useUrlParamStore } from "@/features/url-param/store";
 import { useSendLead } from "@/features/lead";
 import { SendLeadDto } from "@/features/lead/dto/send-lead.dto";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { CustomErrorText } from "@/shared/ui/custom-error-text";
+import { FormStep } from "@/entities/step/enums/step.enum";
+import { useLeadFormStore } from "@/entities/lead-form/store";
 
 export const FormBooking = () => {
-  const { step, nextStep } = useStep();
+  const { currentStep, nextStep, step, steps } = useStep();
   const { params } = useUrlParamStore();
+  const { config } = useLeadFormStore();
   const { handlerSendLead, error, loading } = useSendLead();
   const isSubmitAllowedRef = useRef(false);
 
-  useEffect(() => {
-    if (step === 3) {
-      isSubmitAllowedRef.current = false;
-      const timer = setTimeout(() => {
-        isSubmitAllowedRef.current = true;
-      }, 300);
-      return () => clearTimeout(timer);
-    } else {
-      isSubmitAllowedRef.current = true;
-    }
-  }, [step]);
+  const isLastStep = step === steps.length - 1;
 
   const { control, getValues, setError, clearErrors, handleSubmit } =
     useForm<BookingForm>({
-      resolver: zodResolver(bookingSchema),
+      resolver: zodResolver(createBookingSchema(config?.settings ?? null)),
       defaultValues: {},
     });
   const handlerContactPageNext = () => {
@@ -40,12 +34,23 @@ export const FormBooking = () => {
 
     const values = getValues();
     let result;
-    switch (step) {
-      case 1:
-      case 2:
+    switch (currentStep) {
+      case FormStep.STEP1:
+        break;
+      case FormStep.CONTACTS:
         result = contactSchema.safeParse(values);
         break;
-      case 3:
+      case FormStep.CAPTCHA:
+        result = captchaSchema.safeParse(values);
+        if (result.success && !values?.captchaPassed) {
+          setError("captchaPassed" as keyof BookingForm, {
+            type: "manual",
+            message: "Please complete the captcha",
+          });
+          return;
+        }
+        break;
+      case FormStep.VERIFY:
         result = verifyCodeSchema.safeParse(values);
         break;
       default:
@@ -84,7 +89,7 @@ export const FormBooking = () => {
   };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (step === 3 && !isSubmitAllowedRef.current) {
+    if (isLastStep && !isSubmitAllowedRef.current) {
       e.preventDefault();
       return;
     }
@@ -98,12 +103,12 @@ export const FormBooking = () => {
     >
       <BookingSteper
         handlerContactsPage={handlerContactPageNext}
-        control={control}
+        control={control as any}
       >
         <>
           <CustomErrorText message={error} />
           <StepButtonBar>
-            {step == 3 ? (
+            {isLastStep ? (
               <StepButton
                 variant="submit"
                 type="submit"
@@ -116,6 +121,7 @@ export const FormBooking = () => {
               <StepButton
                 variant="next"
                 type="button"
+                customTitle={config?.osnovanie?.forwardButtonText}
                 onClick={handlerContactPageNext}
               />
             )}
