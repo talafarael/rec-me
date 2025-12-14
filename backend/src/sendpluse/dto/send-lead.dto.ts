@@ -32,6 +32,20 @@ export class SendpulseSendLeadDto {
 
   @IsString()
   pixel: string;
+  
   @IsString()
+  @IsOptional()
   verifyCodePhone: string;
+
+  @IsString()
+  @IsOptional()
+  field1?: string;
+
+  @IsString()
+  @IsOptional()
+  field2?: string;
+
+  @IsString()
+  @IsOptional()
+  field3?: string;
 }

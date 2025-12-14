@@ -19,6 +19,7 @@ export class LeadformConfig {
     notifications?: boolean;
     whatsapp?: boolean;
     api?: boolean;
+    captcha?: boolean;
   } | null;
 
   @Column({ type: 'jsonb', nullable: true })

@@ -24,5 +24,9 @@ export class UpdateSettingsDto {
   @IsBoolean()
   @IsOptional()
   api?: boolean;
+
+  @IsBoolean()
+  @IsOptional()
+  captcha?: boolean;
 }
 

@@ -9,6 +9,9 @@ export interface ILead {
   email: string;
   pixel: string;
   verifyCodePhone: string;
+  field1?: string;
+  field2?: string;
+  field3?: string;
   ip: string;
   user_agent: string;
   created_at: Date;

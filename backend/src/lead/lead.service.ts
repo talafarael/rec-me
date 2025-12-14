@@ -5,6 +5,7 @@ import { getMessageCode } from 'src/twilio/maps/twilio.map';
 import { ILead } from './model/lead';
 import { TelegramService } from 'src/telegram/telegram.service';
 import { GooglesheetsService } from 'src/googlesheets/googlesheets.service';
+import { LeadformConfigService } from 'src/leadform-config/leadform-config.service';
 
 @Injectable()
 export class LeadService {
@@ -12,19 +13,25 @@ export class LeadService {
     private readonly sendpluseService: SendpluseService,
     private readonly telegramService: TelegramService,
     private readonly googlesheetsService: GooglesheetsService,
+    private readonly leadformConfigService: LeadformConfigService,
   ) { }
   async sendLead(data: SendpulseSendLeadDto, ip: string, userAgent: string) {
-    const verifyCode = getMessageCode(data.phone);
+    const config = await this.leadformConfigService.getConfig();
+    const isNotificationsEnabled = config?.settings?.notifications !== false;
+
+    if (isNotificationsEnabled) {
+      const verifyCode = getMessageCode(data.phone);
+      if (verifyCode?.toString() !== data.verifyCodePhone) {
+        throw new BadRequestException('Verification code is incorrect');
+      }
+    }
+
     const info: ILead = {
       ...data,
       ip,
       user_agent: userAgent,
       created_at: new Date(),
     };
-
-    if (verifyCode?.toString() !== data.verifyCodePhone) {
-      throw new BadRequestException('Verification code is incorrect');
-    }
     try {
       await this.telegramService.sendLead(info);
     } catch (e) {

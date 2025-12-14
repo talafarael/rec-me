@@ -62,6 +62,9 @@ export class SendpluseService {
       'pixel',
       'Имя',
       'Phone',
+      'field1',
+      'field2',
+      'field3',
     ];
 
     const variables = Object.fromEntries(
@@ -75,6 +78,9 @@ export class SendpluseService {
         pixel: data.pixel,
         Имя: data.name,
         Phone: data.phone,
+        field1: data.field1,
+        field2: data.field2,
+        field3: data.field3,
       }).filter(([key, value]) => value && allowedVars.includes(key)),
     );
 

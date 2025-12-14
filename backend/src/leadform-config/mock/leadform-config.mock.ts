@@ -9,6 +9,7 @@ export const mockLeadformConfig: LeadformConfig = {
     notifications: true,
     whatsapp: true,
     api: true,
+    captcha: true,
   },
   osnovanie: {
     forwardButtonText: 'Next',
