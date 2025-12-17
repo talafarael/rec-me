@@ -13,5 +13,5 @@ RUN npm prune --production
 
 EXPOSE 9000
 
-CMD ["npm", "run", "start:prod"]
+CMD sh -c "npm run migration:run && npm run start:prod"
 
