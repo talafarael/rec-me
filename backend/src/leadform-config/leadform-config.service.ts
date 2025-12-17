@@ -26,18 +26,13 @@ export class LeadformConfigService implements OnModuleInit {
   }
 
   private async initializeMockData(): Promise<void> {
-    try {
-      const count = await this.repository.count();
-      if (count === 0) {
-        const { id, created_at, updated_at, ...mockDataWithoutId } =
-          mockLeadformConfig;
-        const mockData = this.repository.create(mockDataWithoutId);
-        await this.repository.save(mockData);
-        console.log('Mock leadform config data initialized');
-      }
-    } catch (error) {
-      // Re-throw to be caught by onModuleInit
-      throw error;
+    const count = await this.repository.count();
+    if (count === 0) {
+      const { id, created_at, updated_at, ...mockDataWithoutId } =
+        mockLeadformConfig;
+      const mockData = this.repository.create(mockDataWithoutId);
+      await this.repository.save(mockData);
+      console.log('Mock leadform config data initialized');
     }
   }
 
