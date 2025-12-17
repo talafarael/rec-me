@@ -14,5 +14,6 @@ RUN npm prune --production
 EXPOSE 9000
 
 
-CMD ["npm", "run", "start:prod"]
+CMD ["sh", "-c", "npm run typeorm:run-migrations && npm run start:dev"]
+
 
