@@ -16,4 +16,4 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DATABASE: ${DB_DATABASE}
       DB_SYNCHRONIZE: ${DB_SYNCHRONIZE}
-    command: npm run start:prod
+    command: sh -c "node run-migrations.js && npm run start:prod"
