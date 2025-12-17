@@ -5,4 +5,4 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 9000
-CMD sh -c "npm run migration:run && npm run start:dev"
+CMD sh -c "npm run typeorm:run-migrations && npm run start:dev"
