@@ -1,3 +1,5 @@
+version: "3.9" 
+
 services:
   app:
     build:
@@ -6,5 +8,10 @@ services:
     container_name: myapp-prod
     ports:
       - "3000:3000"
+    volumes:
+      - .:/app          
+      - /app/node_modules
     environment:
       - NODE_ENV=production 
+    command: npm run start
+
