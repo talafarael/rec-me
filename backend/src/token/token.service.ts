@@ -24,10 +24,15 @@ export class TokenService implements OnModuleInit {
   }
 
   async onModuleInit() {
-    const count = await this.repository.count();
-    if (count === 0) {
-      const token = this.repository.create({});
-      await this.repository.save(token);
+    try {
+      const count = await this.repository.count();
+      if (count === 0) {
+        const token = this.repository.create({});
+        await this.repository.save(token);
+      }
+    } catch (error) {
+      // Handle case where table doesn't exist yet (migrations not run)
+      console.warn('Tokens table not found. Please run database migrations:', error.message);
     }
   }
 
