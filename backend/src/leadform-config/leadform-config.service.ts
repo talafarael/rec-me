@@ -17,17 +17,27 @@ export class LeadformConfigService implements OnModuleInit {
   }
 
   async onModuleInit() {
-    await this.initializeMockData();
+    try {
+      await this.initializeMockData();
+    } catch (error) {
+      // Handle case where table doesn't exist yet (migrations not run)
+      console.warn('Leadform config table not found. Please run database migrations:', error.message);
+    }
   }
 
   private async initializeMockData(): Promise<void> {
-    const count = await this.repository.count();
-    if (count === 0) {
-      const { id, created_at, updated_at, ...mockDataWithoutId } =
-        mockLeadformConfig;
-      const mockData = this.repository.create(mockDataWithoutId);
-      await this.repository.save(mockData);
-      console.log('Mock leadform config data initialized');
+    try {
+      const count = await this.repository.count();
+      if (count === 0) {
+        const { id, created_at, updated_at, ...mockDataWithoutId } =
+          mockLeadformConfig;
+        const mockData = this.repository.create(mockDataWithoutId);
+        await this.repository.save(mockData);
+        console.log('Mock leadform config data initialized');
+      }
+    } catch (error) {
+      // Re-throw to be caught by onModuleInit
+      throw error;
     }
   }
 

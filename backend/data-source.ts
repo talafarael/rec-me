@@ -5,10 +5,10 @@ config();
 
 const isProduction = process.env.NODE_ENV === 'production';
 const entitiesPath = isProduction 
-  ? ['dist/**/*.entity{.ts,.js}']
+  ? ['dist/src/**/*.entity{.ts,.js}']
   : ['src/**/*.entity{.ts,.js}'];
 const migrationsPath = isProduction
-  ? ['dist/migrations/**/*{.ts,.js}']
+  ? ['dist/src/migrations/**/*{.ts,.js}']
   : ['src/migrations/**/*{.ts,.js}'];
 
 export default new DataSource({
