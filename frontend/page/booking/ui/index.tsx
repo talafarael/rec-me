@@ -11,7 +11,7 @@ import { STEPS } from "@/entities/step/constants/step.config";
 import { FormStep } from "@/entities/step/enums/step.enum";
 
 export const BookingPage = () => {
-  const { params, loading, error } = useUrlParamStore();
+  const { loading, error } = useUrlParamStore();
   const { config } = useLeadFormStore();
   useGetUrlsParams();
 
