@@ -21,7 +21,7 @@ export const BookingSteper = ({ control, children }: BookingSteperProps) => {
   return (
     <div className="h-[100vh]">
       {showButton && <StepProgressBar />}
-      <div className="flex flex-col justify-center items-center top-[3%] h-[100%]">
+      <div className="flex flex-col justify-center items-center  h-[90%]">
         {stepContent}
         {showButton && children}
       </div>
