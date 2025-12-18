@@ -7,6 +7,6 @@ export class TwilioController {
   constructor(private readonly twilioService: TwilioService) { }
   @Post('')
   async sendVerifyCode(@Body() data: SendVerifyCodeDto) {
-    return this.twilioService.snedVerifyCode(data);
+    return this.twilioService.sendVerifyCode(data);
   }
 }

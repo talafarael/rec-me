@@ -10,6 +10,7 @@ export class TwilioService {
   private readonly authtoken: string;
   private readonly phoneFrom: string;
   private readonly twilioClient: Twilio;
+  private readonly sendingCodes = new Set<string>(); // Блокировка для предотвращения повторной отправки
 
   constructor(private readonly configService: ConfigService) {
     this.accountsid = this.configService.get<string>('twilio.accountsid')!;
@@ -18,13 +19,32 @@ export class TwilioService {
     this.twilioClient = twilio(this.accountsid, this.authtoken);
   }
 
-  async snedVerifyCode(data: SendVerifyCodeDto) {
-    const code = this.generateCode();
-    const phone = getMessageCode(data.phone);
-    if (phone) return;
-    await this.sendSmsApi(data.phone, code.toString());
-    setMessageCode(data.phone, code);
-    return true;
+  async sendVerifyCode(data: SendVerifyCodeDto) {
+
+    if (this.sendingCodes.has(data.phone)) {
+      return; // Уже идет отправка, игнорируем запрос
+    }
+
+
+    const existingCode = getMessageCode(data.phone);
+    if (existingCode) {
+      return; 
+    }
+
+    // Устанавливаем блокировку
+    this.sendingCodes.add(data.phone);
+
+    try {
+      const code = this.generateCode();
+      await this.sendSmsApi(data.phone, code.toString());
+      setMessageCode(data.phone, code);
+      return true;
+    } finally {
+      // Снимаем блокировку через небольшую задержку, чтобы предотвратить повторные запросы
+      setTimeout(() => {
+        this.sendingCodes.delete(data.phone);
+      }, 1000); // 1 секунда задержка
+    }
   }
   private generateCode(): number {
     return Math.floor(1000 + Math.random() * 9000);
