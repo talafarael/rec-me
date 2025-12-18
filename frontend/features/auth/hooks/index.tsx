@@ -17,7 +17,7 @@ export const useLogin = () => {
       const token = await login(data);
       console.log(token.data);
       localStorage.setItem("token", token?.data.accessToken);
-      router.push("admin");
+      router.push("/admin/settings/osnovanie");
       return true;
     } catch (err: unknown) {
       let message = "Unknown error";

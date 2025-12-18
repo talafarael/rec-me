@@ -20,26 +20,28 @@ export const LoginForm = () => {
 
   return (
     <form
-      className="flex flex-col justify-center items-center h-[100%]"
+      className="flex flex-col justify-center items-center h-[100%] gap-[20px]"
       onSubmit={handleSubmit(handlerSubmit)}
     >
-      <div className="flex flex-col gap-[12px]">
-        {loginFormData.map((elem) => (
-          <FormInput<ILoginForm> key={elem.name} data={elem} control={control}>
-            {(field, fieldErrors) => (
-              <BookingFieldInput title={elem.field} fieldErrors={fieldErrors}>
-                <CustomInput {...field} />
-              </BookingFieldInput>
-            )}
-          </FormInput>
-        ))}
-        <button
-          type="submit"
-          className="w-[352px] h-[57px] rounded-[15px] bg-blue-500 text-white"
-        >
-          Submit
-        </button>
-      </div>
+      {loginFormData.map((elem) => (
+        <FormInput<ILoginForm> key={elem.name} data={elem} control={control}>
+          {(field, fieldErrors) => (
+            <BookingFieldInput
+              variant="admin"
+              title={elem.field}
+              fieldErrors={fieldErrors}
+            >
+              <CustomInput variant="admin" {...field} />
+            </BookingFieldInput>
+          )}
+        </FormInput>
+      ))}
+      <button
+        type="submit"
+        className="w-[352px] h-[57px] rounded-[15px] bg-blue-500 text-white"
+      >
+        Submit
+      </button>
     </form>
   );
 };
