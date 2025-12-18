@@ -16,7 +16,11 @@ export const InputsVerifyCode = ({ control }: InputsVerifyCodeProps) => {
   const inputsVerifyCodeData = getInputsVerifyCodeData(config);
   return (
     <div className="flex flex-col gap-[12px]">
-      <CustomInputs control={control} data={inputsVerifyCodeData} />
+      <CustomInputs
+        type="default"
+        control={control}
+        data={inputsVerifyCodeData}
+      />
     </div>
   );
 };
