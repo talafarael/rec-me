@@ -81,10 +81,15 @@ export const FormBooking = () => {
       return;
     }
     if (!params) return;
+    
+    // Ensure pixel field is a valid string (handle potential JSON issues)
+    const pixelValue = params.pixel || "";
+    
     const body: SendLeadDto = {
       ...data,
       name: data.fullName,
       ...params,
+      pixel: pixelValue,
     };
     const res = await handlerSendLead(body);
     if (res) {
@@ -93,8 +98,8 @@ export const FormBooking = () => {
   };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Always prevent default form submission
     if (isLastStep && !isSubmitAllowedRef.current) {
-      e.preventDefault();
       return;
     }
     handleSubmit(handlerSubmit)(e);
@@ -104,6 +109,7 @@ export const FormBooking = () => {
     <form
       className="flex flex-col justify-center items-center  h-[100%]"
       onSubmit={handleFormSubmit}
+      noValidate
     >
       <BookingSteper
         handlerContactsPage={handlerContactPageNext}
