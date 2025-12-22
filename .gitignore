@@ -71,8 +71,8 @@ Desktop.ini
 *.temp
 .cache/
 
-# Nginx (if you want to ignore nginx configs)
-# nginx/
+# Nginx
+nginx/
 
 # Misc
 *.pem
