@@ -2,7 +2,7 @@ node_modules
 .next
 .git
 .gitignore
-pnpm-lock.yaml
+package-lock.json
 .env.local
 .env*.local
 .env

@@ -7,6 +7,11 @@ export const settingsFormData: IInputForm<ILeadformSettings>[] = [
     field: "Шаг 1",
     type: "checkbox",
   },
+  {
+    name: "step2",
+    field: "Шаг 2",
+    type: "checkbox",
+  },
 
   { name: "captcha", field: "Каптча", type: "checkbox" },
   {

@@ -1,8 +1,19 @@
 FROM node:21
 
+# Install pnpm
+RUN npm install -g pnpm
+
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy the rest of the application
 COPY . .
+
 EXPOSE 3000
-CMD npm run dev
+
+CMD pnpm run dev
