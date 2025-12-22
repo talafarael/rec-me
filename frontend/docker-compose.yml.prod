@@ -3,6 +3,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
+      args:
+        - NEXT_PUBLIC_BE_URL=${NEXT_PUBLIC_BE_URL}
+        - NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
+        - NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY=${NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY}
     container_name: myapp-prod
     ports:
       - "3000:3000"
@@ -11,5 +15,8 @@ services:
       - .env.production
     environment:
       - NODE_ENV=production
+      - NEXT_PUBLIC_BE_URL=${NEXT_PUBLIC_BE_URL}
+      - NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
+      - NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY=${NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY}
     restart: unless-stopped 
 
