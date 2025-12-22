@@ -11,13 +11,18 @@ COPY package.json pnpm-lock.yaml ./
 # Install dependencies (including TypeScript which is in devDependencies)
 RUN pnpm install --frozen-lockfile
 
-# Copy the rest of the application
-COPY . .
-
 # Set production environment
 ENV NODE_ENV=production
 
-# Build the application
+# Copy .env files FIRST (Next.js reads these automatically during build)
+# This is critical - .env files must be available before running build
+# Using wildcard to make it optional if files don't exist
+COPY .env* ./
+
+# Copy the rest of the application
+COPY . .
+
+# Build the application (env vars will be available during build)
 RUN pnpm run build
 
 EXPOSE 3000
