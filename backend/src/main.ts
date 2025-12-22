@@ -15,13 +15,17 @@ async function bootstrap(): Promise<void> {
     prefix: '/uploads',
   });
   
+  const corsOrigins = process.env.CORS_ORIGINS
+    ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
+    : [
+        'https://farael-frontend.esp.ovh',
+        'http://localhost:3000',
+        'https://lead-form.website',
+        'http://lead-form.website',
+      ];
+
   app.enableCors({
-    origin: [
-      'https://farael-frontend.esp.ovh',
-      'http://localhost:3000',
-      'https://lead-form.website',
-      'http://lead-form.website',
-    ],
+    origin: corsOrigins,
     methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization', 'x-waf-captcha-token'],
