@@ -14,15 +14,26 @@ RUN pnpm install --frozen-lockfile
 # Set production environment
 ENV NODE_ENV=production
 
-# Copy .env files FIRST (Next.js reads these automatically during build)
-# This is critical - .env files must be available before running build
-# Using wildcard to make it optional if files don't exist
-COPY .env* ./
+# Build arguments for environment variables (passed from docker-compose)
+# These are optional - if not provided, Next.js will read from .env file
+ARG NEXT_PUBLIC_BE_URL=""
+ARG NEXT_PUBLIC_BASE_URL=""
+ARG NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY=""
+
+# Set as environment variables (Next.js needs these during build)
+# Only set if provided (non-empty), otherwise Next.js will read from .env file
+ENV NEXT_PUBLIC_BE_URL=${NEXT_PUBLIC_BE_URL}
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
+ENV NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY=${NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY}
+
+# Copy .env file (Next.js will also read this as fallback)
+COPY .env ./
 
 # Copy the rest of the application
 COPY . .
 
-# Build the application (env vars will be available during build)
+# Build the application
+# Next.js will use ENV variables (which take precedence) and also read .env file
 RUN pnpm run build
 
 EXPOSE 3000

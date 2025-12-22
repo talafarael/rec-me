@@ -3,11 +3,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
+      # Pass environment variables as build args so they're available during build
+      # Using default empty values to avoid warnings if variables are not set
+      args:
+        NEXT_PUBLIC_BE_URL: ${NEXT_PUBLIC_BE_URL:-}
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-}
+        NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY: ${NEXT_PUBLIC_AWS_WAF_CAPTCHA_API_KEY:-}
     container_name: myapp-prod
     ports:
       - "3000:3000"
     env_file:
-      - .env.production
       - .env
     environment:
       - NODE_ENV=production
