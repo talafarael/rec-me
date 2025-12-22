@@ -1,10 +1,21 @@
-import { Controller, Get, Patch, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Patch,
+  Body,
+  UseInterceptors,
+  UploadedFile,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { memoryStorage } from 'multer';
 import { LeadformConfigService } from './leadform-config.service';
 import { UpdateSettingsDto } from './dto/update-settings.dto';
 import { UpdateOsnovanieDto } from './dto/update-osnovanie.dto';
 import { UpdateStep1Dto } from './dto/update-step1.dto';
 import { UpdateStep2Dto } from './dto/update-step2.dto';
 import { UpdateWhatsappDto } from './dto/update-whatsapp.dto';
+import type { MulterFile } from './types/multer-file.interface';
+import { ParseFormDataInterceptor } from './interceptors/parse-form-data.interceptor';
 
 @Controller('leadform-config')
 export class LeadformConfigController {
@@ -21,8 +32,20 @@ export class LeadformConfigController {
   }
 
   @Patch('osnovanie')
-  async updateOsnovanie(@Body() dto: UpdateOsnovanieDto) {
-    return await this.leadformConfigService.updateOsnovanie(dto);
+  @UseInterceptors(
+    FileInterceptor('backgroundImage', {
+      storage: memoryStorage(),
+      limits: {
+        fileSize: 50 * 1024 * 1024, // 50MB
+      },
+    }),
+    ParseFormDataInterceptor,
+  )
+  async updateOsnovanie(
+    @Body() dto: UpdateOsnovanieDto,
+    @UploadedFile() file?: MulterFile,
+  ) {
+    return await this.leadformConfigService.updateOsnovanie(dto, file);
   }
 
   @Patch('step1')

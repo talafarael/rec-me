@@ -1,5 +1,8 @@
 import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
+import { writeFile, mkdir } from 'fs/promises';
+import { join } from 'path';
+import { existsSync } from 'fs';
 import { LeadformConfig } from './entity/leadform-config.entity';
 import { UpdateSettingsDto } from './dto/update-settings.dto';
 import { UpdateOsnovanieDto } from './dto/update-osnovanie.dto';
@@ -7,6 +10,7 @@ import { UpdateStep1Dto } from './dto/update-step1.dto';
 import { UpdateStep2Dto } from './dto/update-step2.dto';
 import { UpdateWhatsappDto } from './dto/update-whatsapp.dto';
 import { mockLeadformConfig } from './mock/leadform-config.mock';
+import { MulterFile } from './types/multer-file.interface';
 
 @Injectable()
 export class LeadformConfigService implements OnModuleInit {
@@ -79,7 +83,10 @@ export class LeadformConfigService implements OnModuleInit {
     return await this.repository.save(config);
   }
 
-  async updateOsnovanie(dto: UpdateOsnovanieDto): Promise<LeadformConfig> {
+  async updateOsnovanie(
+    dto: UpdateOsnovanieDto,
+    file?: MulterFile,
+  ): Promise<LeadformConfig> {
     let config = await this.repository.findOne({
       where: {},
       order: { created_at: 'DESC' },
@@ -97,9 +104,37 @@ export class LeadformConfigService implements OnModuleInit {
       throw new Error('Failed to initialize or find config');
     }
 
+    let backgroundImagePath: string | undefined = dto.backgroundImage;
+
+    // Если передан файл, сохраняем его
+    if (file) {
+      const uploadsDir = join(process.cwd(), 'uploads');
+      
+      // Создаем папку uploads, если её нет
+      if (!existsSync(uploadsDir)) {
+        await mkdir(uploadsDir, { recursive: true });
+      }
+
+      // Генерируем уникальное имя файла
+      const timestamp = Date.now();
+      const originalName = file.originalname.replace(/[^a-zA-Z0-9.-]/g, '_');
+      const fileName = `${timestamp}-${originalName}`;
+      const filePath = join(uploadsDir, fileName);
+
+      // Сохраняем файл
+      await writeFile(filePath, file.buffer);
+
+      // Сохраняем путь относительно корня проекта
+      backgroundImagePath = `/uploads/${fileName}`;
+    }
+
+    // Удаляем backgroundImage из dto, чтобы не перезаписать значение
+    const { backgroundImage, ...dtoWithoutImage } = dto;
+
     config.osnovanie = {
       ...(config.osnovanie || {}),
-      ...dto,
+      ...dtoWithoutImage,
+      ...(backgroundImagePath !== undefined && { backgroundImage: backgroundImagePath }),
     };
 
     return await this.repository.save(config);

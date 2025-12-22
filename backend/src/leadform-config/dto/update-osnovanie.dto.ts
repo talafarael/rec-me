@@ -24,5 +24,25 @@ export class UpdateOsnovanieDto {
   @IsBoolean()
   @IsOptional()
   usePhoneVerification?: boolean;
+
+  @IsString()
+  @IsOptional()
+  backgroundColor?: string;
+
+  @IsString()
+  @IsOptional()
+  primaryColor?: string;
+
+  @IsString()
+  @IsOptional()
+  fontColor?: string;
+
+  @IsString()
+  @IsOptional()
+  backgroundImage?: string;
+
+  @IsBoolean()
+  @IsOptional()
+  useBackgroundImage?: boolean;
 }
 

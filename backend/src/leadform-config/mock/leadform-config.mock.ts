@@ -1,4 +1,4 @@
-import { LeadformConfig } from '../entity/leadform-config.entity';
+import type { LeadformConfig } from '../entity/leadform-config.entity';
 
 export const mockLeadformConfig: LeadformConfig = {
   id: '123e4567-e89b-12d3-a456-426614174000',
@@ -18,6 +18,11 @@ export const mockLeadformConfig: LeadformConfig = {
     thankYouText: 'Thank you for your application! We will contact you soon.',
     useCaptcha: true,
     usePhoneVerification: true,
+    backgroundColor: '#263238',
+    primaryColor: '#D4AF37',
+    fontColor: '#000000',
+    backgroundImage: '',
+    useBackgroundImage: false,
   },
   step1: {
     fieldsCount: 3,

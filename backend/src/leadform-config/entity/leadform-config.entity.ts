@@ -30,6 +30,11 @@ export class LeadformConfig {
     thankYouText?: string;
     useCaptcha?: boolean;
     usePhoneVerification?: boolean;
+    backgroundColor?: string;
+    primaryColor?: string;
+    fontColor?: string;
+    backgroundImage?: string;
+    useBackgroundImage?: boolean;
   } | null;
 
   @Column({ type: 'jsonb', nullable: true })

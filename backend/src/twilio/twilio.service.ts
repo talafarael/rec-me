@@ -20,18 +20,15 @@ export class TwilioService {
   }
 
   async sendVerifyCode(data: SendVerifyCodeDto) {
-
     if (this.sendingCodes.has(data.phone)) {
-      return; // Уже идет отправка, игнорируем запрос
+      return;
     }
-
 
     const existingCode = getMessageCode(data.phone);
     if (existingCode) {
-      return; 
+      return;
     }
 
-    // Устанавливаем блокировку
     this.sendingCodes.add(data.phone);
 
     try {
@@ -40,10 +37,9 @@ export class TwilioService {
       setMessageCode(data.phone, code);
       return true;
     } finally {
-      // Снимаем блокировку через небольшую задержку, чтобы предотвратить повторные запросы
       setTimeout(() => {
         this.sendingCodes.delete(data.phone);
-      }, 1000); // 1 секунда задержка
+      }, 10000);
     }
   }
   private generateCode(): number {
