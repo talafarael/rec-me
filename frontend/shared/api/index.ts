@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-const PORT = process.env.NEXT_PUBLIC_BE_URL || "https://farael-backend.esp.ovh";
+const PORT = process.env.NEXT_PUBLIC_BE_URL || "https://api.lead-form.website";
 // "http://localhost:9000"
 
 const API_PORT = `${PORT}`;
