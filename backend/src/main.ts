@@ -6,7 +6,7 @@ import { join } from 'path';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    bodyParser: false, // Отключаем встроенный, настроим вручную с увеличенными лимитами
+    bodyParser: true, // Включаем JSON parser для обычных запросов
     rawBody: false,
   });
 
