@@ -6,7 +6,9 @@ export type InputsType =
   | "phone"
   | "checkbox"
   | "textarea"
-  | "textBlock";
+  | "textBlock"
+  | "color"
+  | "file";
 export type IInputForm<T extends FieldValues> = {
   name: Path<T>;
   field: string;

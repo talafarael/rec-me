@@ -6,6 +6,7 @@ import { BookingFieldInput } from "@/entities/booking-form/ui/field-input";
 import { CustomTextarea } from "../custom-textarea";
 import { CustomInput } from "../custom-input";
 import { CustomPhoneInput } from "../custom-phone-input";
+import { CustomFileInput } from "../custom-file-input";
 
 export interface CustomInputsProps<T extends FieldValues> {
   data: (IInputForm<T> | IInputFormText<T>)[];
@@ -77,6 +78,20 @@ export const CustomInputs = <T extends FieldValues>({
                       variant={type}
                       {...restField}
                       value={value as string}
+                    />
+                  ) : elem.type === "color" ? (
+                    <CustomInput
+                      variant={type}
+                      {...restField}
+                      type="color"
+                      value={value as string || "#000000"}
+                    />
+                  ) : elem.type === "file" ? (
+                    <CustomFileInput
+                      variant={type}
+                      onChange={(fileValue) => {
+                        restField.onChange(fileValue);
+                      }}
                     />
                   ) : (
                     <CustomInput

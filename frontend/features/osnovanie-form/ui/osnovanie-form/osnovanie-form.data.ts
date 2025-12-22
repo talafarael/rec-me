@@ -22,4 +22,29 @@ export const onovanieFormData: IInputForm<ILeadformOsnovanie>[] = [
     field: "Введите текст на странице спасибо",
     type: "default",
   },
+  {
+    name: "backgroundColor",
+    field: "Цвет фона",
+    type: "color",
+  },
+  {
+    name: "primaryColor",
+    field: "Основной цвет",
+    type: "color",
+  },
+  {
+    name: "fontColor",
+    field: "Цвет шрифта",
+    type: "color",
+  },
+  {
+    name: "useBackgroundImage",
+    field: "Использовать фоновое изображение",
+    type: "checkbox",
+  },
+  {
+    name: "backgroundImage",
+    field: "Фоновое изображение",
+    type: "file",
+  },
 ];

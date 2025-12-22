@@ -10,7 +10,22 @@ export const useUpdateOsnovanie = () => {
     setLoading(true);
     setError(undefined);
     try {
-      await updateOsnovanie(data);
+      
+      const formData = new FormData();
+      
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== undefined && value !== null) {
+          if (value instanceof File) {
+            formData.append(key, value);
+          } else if (typeof value === "boolean") {
+            formData.append(key, value.toString());
+          } else {
+            formData.append(key, String(value));
+          }
+        }
+      });
+
+      await updateOsnovanie(formData as any);
       return true;
     } catch (err: unknown) {
       let message = "Unknown error";

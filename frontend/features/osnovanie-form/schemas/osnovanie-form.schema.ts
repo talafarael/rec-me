@@ -7,6 +7,11 @@ export const osnovanieFormSchema = z.object({
   thankYouText: z.string().optional(),
   useCaptcha: z.boolean().optional().default(false),
   usePhoneVerification: z.boolean().optional().default(false),
+  backgroundColor: z.string().optional(),
+  primaryColor: z.string().optional(),
+  fontColor: z.string().optional(),
+  useBackgroundImage: z.boolean().optional().default(false),
+  backgroundImage: z.string().optional(),
 });
 
 

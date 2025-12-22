@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/farael/GitHub/rec-me/frontend/shared/ui/custom-input/index.tsx"],"sourcesContent":["export interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}\n\nexport const CustomInput = ({\n  value,\n  onChange,\n  ...props\n}: CustomInputProps) => {\n  return (\n    <input\n      onChange={onChange}\n      value={value ?? \"\"}\n      className=\"w-[352px] pl-[10px] h-[57px] rounded-[15px]\"\n      {...props}\n    />\n  );\n};\n"],"names":[],"mappings":";;;;;;AAEO,MAAM,cAAc,CAAC,EAC1B,KAAK,EACL,QAAQ,EACR,GAAG,OACc;IACjB,qBACE,0PAAC;QACC,UAAU;QACV,OAAO,SAAS;QAChB,WAAU;QACT,GAAG,KAAK;;;;;;AAGf","debugId":null}},
-    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":["file:///home/farael/GitHub/rec-me/frontend/app/page.tsx"],"sourcesContent":["import { CustomInput } from \"@/shared/ui/custom-input\";\n\nexport default function Home() {\n  return <CustomInput />;\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACtB,qBAAO,0PAAC,oKAAW;;;;;AACrB","debugId":null}}]
-}

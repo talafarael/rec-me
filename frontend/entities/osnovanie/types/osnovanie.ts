@@ -5,4 +5,9 @@ export interface ILeadformOsnovanie {
   thankYouText?: string;
   useCaptcha?: boolean;
   usePhoneVerification?: boolean;
+  backgroundColor?: string;
+  primaryColor?: string;
+  fontColor?: string;
+  useBackgroundImage?: boolean;
+  backgroundImage?: string;
 }
