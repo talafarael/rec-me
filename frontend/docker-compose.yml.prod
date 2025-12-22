@@ -6,6 +6,9 @@ services:
     container_name: myapp-prod
     ports:
       - "3000:3000"
+    env_file:
+      - .env
+      - .env.production
     environment:
       - NODE_ENV=production
     restart: unless-stopped 
