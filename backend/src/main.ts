@@ -9,20 +9,24 @@ async function bootstrap(): Promise<void> {
     bodyParser: false, // Отключаем встроенный, настроим вручную с увеличенными лимитами
     rawBody: false,
   });
-  
+
 
   app.useStaticAssets(join(process.cwd(), 'uploads'), {
     prefix: '/uploads',
   });
-  
-  const corsOrigins = process.env.CORS_ORIGINS
+
+  const baseOrigins = [
+    'https://farael-frontend.esp.ovh',
+    'http://localhost:3000',
+    'https://lead-form.website',
+    'http://lead-form.website',
+  ];
+
+  const envOrigins = process.env.CORS_ORIGINS
     ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
-    : [
-        'https://farael-frontend.esp.ovh',
-        'http://localhost:3000',
-        'https://lead-form.website',
-        'http://lead-form.website',
-      ];
+    : [];
+
+  const corsOrigins = [...baseOrigins, ...envOrigins];
 
   app.enableCors({
     origin: corsOrigins,
